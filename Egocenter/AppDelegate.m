@@ -16,8 +16,43 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    splitViewController = [[UISplitViewController alloc] init];
+    
+    MasterTableViewController *masterViewController = [[MasterTableViewController alloc] init];
+    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    
+    
+    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    
+    splitViewController.viewControllers = [NSArray arrayWithObjects:rootNav,detailNav, nil];
+    splitViewController.delegate = detailViewController;
+    
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    
+    NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
+    
+    NSLog(@"%@,%@",email,token);
+    
+    if (token && email) {
+        [self.window setRootViewController:(UIViewController*)splitViewController];
+    }else {
+        
+        [self.window setRootViewController:(UIViewController*)loginViewController];
+
+    }
+    
+    
+    [self.window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+-(void)setSplitViewController{
+    [self.window setRootViewController:splitViewController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

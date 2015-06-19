@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MasterTableViewController.h"
+#import "DetailViewController.h"
+#import "AFNetworking.h"
+#import "LoginViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    UISplitViewController *splitViewController;
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -19,6 +26,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+-(void)setSplitViewController;
 
 
 @end
