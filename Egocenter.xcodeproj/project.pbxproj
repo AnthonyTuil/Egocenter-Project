@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		336815D11B3462EE002B882D /* egocenter.sql in Resources */ = {isa = PBXBuildFile; fileRef = 336815D01B3462EE002B882D /* egocenter.sql */; };
+		336815D21B34633B002B882D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */; };
 		9200268F1B2DF12C0098A66F /* RelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9200268E1B2DF12C0098A66F /* RelationView.m */; };
 		924537361B2328EF008229F7 /* Relation.m in Sources */ = {isa = PBXBuildFile; fileRef = 924537351B2328EF008229F7 /* Relation.m */; };
 		924B7ADF1B2340EF0005FC90 /* RelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924B7ADE1B2340EF0005FC90 /* RelationViewController.m */; };
@@ -30,12 +32,10 @@
 		927FA6541B303F9300053099 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6531B303F9300053099 /* LoginViewController.m */; };
 		927FA6571B305FF900053099 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6561B305FF900053099 /* GroupViewController.m */; };
 		927FA65A1B30634300053099 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6591B30634300053099 /* GroupTableViewCell.m */; };
-		92AECB3B1B2B17F7001B990E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */; };
 		92AECB3D1B2B1805001B990E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3C1B2B1805001B990E /* Foundation.framework */; };
 		92AECB3F1B2B180B001B990E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3E1B2B180B001B990E /* UIKit.framework */; };
 		92AECB411B2B1816001B990E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB401B2B1816001B990E /* CoreGraphics.framework */; };
 		92AECB451B2B18CC001B990E /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AECB441B2B18CC001B990E /* DBManager.m */; };
-		92AECB481B2B2B78001B990E /* egocenter.sql in Resources */ = {isa = PBXBuildFile; fileRef = 92AECB471B2B2B78001B990E /* egocenter.sql */; };
 		92DCEAA91B1F56A100760B35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DCEAA81B1F56A100760B35 /* main.m */; };
 		92DCEAAC1B1F56A100760B35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DCEAAB1B1F56A100760B35 /* AppDelegate.m */; };
 		92DCEAB21B1F56A100760B35 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DCEAB11B1F56A100760B35 /* ViewController.m */; };
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		336815D01B3462EE002B882D /* egocenter.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = egocenter.sql; sourceTree = "<group>"; };
 		9200268D1B2DF12C0098A66F /* RelationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationView.h; sourceTree = "<group>"; };
 		9200268E1B2DF12C0098A66F /* RelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationView.m; sourceTree = "<group>"; };
 		924537341B2328EF008229F7 /* Relation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relation.h; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		92AECB401B2B1816001B990E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		92AECB431B2B18CC001B990E /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = ../DBManager.h; sourceTree = "<group>"; };
 		92AECB441B2B18CC001B990E /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = ../DBManager.m; sourceTree = "<group>"; };
-		92AECB471B2B2B78001B990E /* egocenter.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = egocenter.sql; sourceTree = "<group>"; };
 		92DCEAA31B1F56A100760B35 /* Egocenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Egocenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DCEAA71B1F56A100760B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DCEAA81B1F56A100760B35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -137,10 +137,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336815D21B34633B002B882D /* libsqlite3.dylib in Frameworks */,
 				92AECB411B2B1816001B990E /* CoreGraphics.framework in Frameworks */,
 				92AECB3F1B2B180B001B990E /* UIKit.framework in Frameworks */,
 				92AECB3D1B2B1805001B990E /* Foundation.framework in Frameworks */,
-				92AECB3B1B2B17F7001B990E /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,7 @@
 		92AECB461B2B18DC001B990E /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				92AECB471B2B2B78001B990E /* egocenter.sql */,
+				336815D01B3462EE002B882D /* egocenter.sql */,
 				927FA6581B30634300053099 /* GroupTableViewCell.h */,
 				927FA6591B30634300053099 /* GroupTableViewCell.m */,
 				92AECB431B2B18CC001B990E /* DBManager.h */,
@@ -387,7 +387,7 @@
 				92DCEAB51B1F56A100760B35 /* Main.storyboard in Resources */,
 				92DCEABA1B1F56A100760B35 /* LaunchScreen.xib in Resources */,
 				92DCEAB71B1F56A100760B35 /* Images.xcassets in Resources */,
-				92AECB481B2B2B78001B990E /* egocenter.sql in Resources */,
+				336815D11B3462EE002B882D /* egocenter.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
