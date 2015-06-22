@@ -11,7 +11,7 @@
 @implementation Relation
 @synthesize colors;
 @synthesize links;
-@synthesize x,y;
+@synthesize x,y,job,age,sex;
 @synthesize name;
 @synthesize relationID;
 

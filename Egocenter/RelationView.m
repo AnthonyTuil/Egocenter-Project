@@ -15,6 +15,7 @@
 @synthesize arrayColor;
 @synthesize arrayLink;
 @synthesize circle;
+@synthesize relation_id;
 
 -(void)setCircleWithColor{
     // split the circle into X color
@@ -43,7 +44,7 @@
     
     name.text = relation.name;
     self.center = CGPointMake(relation.x,relation.y);
-    
+    self.relation_id = relation.relationID;
    
     
     [self addSubview:name];

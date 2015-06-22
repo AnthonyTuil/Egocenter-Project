@@ -45,12 +45,13 @@
 
 -(void)loadData{
     // Form the query.
-    NSString *query = @"select * from relation";
+    NSString *query = @"SELECT * FROM relation";
     
     // Get the results.
     if (self.objects != nil) {
         self.objects = nil;
     }
+    NSLog(@"ici yes");
     self.objects = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the table view.
@@ -92,8 +93,21 @@
     relationToAdd.name = @"Name";
     relationToAdd.x = ((float)arc4random() / ARC4RANDOM_MAX*421);
     relationToAdd.y = ((float)arc4random() / ARC4RANDOM_MAX*421);
+    relationToAdd.sex = 0;
+    relationToAdd.age = 18;
+    relationToAdd.job =1;
     
-    NSLog(@"(%f,%f)",relationToAdd.x,relationToAdd.y);
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO relation values(null, '%@', %f, %f,null,%i,null)", relationToAdd.name, relationToAdd.x, relationToAdd.y,relationToAdd.sex];
+    
+    // Execute the query.
+    [self.dbManager executeQuery:query];
+    [self loadData];
+    
+    NSString *query1 = [NSString stringWithFormat:@"SELECT relationID FROM relation WHERE name='%@' AND x=%f AND y=%f", relationToAdd.name, relationToAdd.x,relationToAdd.y];
+    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query1]];
+    relationToAdd.relationID =[[[results objectAtIndex:0] objectAtIndex:0] intValue];
+    
+    
     id detail = self.splitViewController.viewControllers[1];
     if ([detail isKindOfClass:[UINavigationController class]]) {
         detail = [((UINavigationController*)detail).viewControllers firstObject];
@@ -103,24 +117,12 @@
         [detail addRelation:relationToAdd];
     }
     
-    //save to DB
-    NSString *query = [NSString stringWithFormat:@"insert into relation values(null, '%@', %f, %f,null,null,null)", relationToAdd.name, relationToAdd.x, relationToAdd.y];
     
-    // Execute the query.
-    [self.dbManager executeQuery:query];
-    [self loadData];
     
-    // If the query was successfully executed then pop the view controller.
-    if (self.dbManager.affectedRows != 0) {
-        NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
-        
-        RelationViewController *relationVC = [[RelationViewController alloc] init];
-        relationVC.recordIDToEdit = [[[self.objects objectAtIndex:[self.objects count]-1] objectAtIndex:0] intValue];
-        [self.navigationController pushViewController:relationVC animated:YES];
-    }
-    else{
-        NSLog(@"Could not execute the query.");
-    }
+    RelationViewController *relationVC = [[RelationViewController alloc] init];
+    relationVC.recordIDToEdit = [[[self.objects objectAtIndex:[self.objects count]-1] objectAtIndex:0] intValue];
+    [self.navigationController pushViewController:relationVC animated:YES];
+
     
     
     
@@ -163,13 +165,14 @@
         }
         if ([detail isKindOfClass:[DetailViewController class]]) {
             // code the retrieve relation in detail
-            //[detail removeRelationAtIndex:indexPath.row];
+            [detail removeRelationAtIndex:(int)indexPath.row];
+            NSLog(@"indexpath row %i",(int)indexPath.row);
         }
 
         int recordIDToDelete = [[[self.objects objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
         //NSLog(@"%@",self.objects);
         // Prepare the query.
-        NSString *query = [NSString stringWithFormat:@"delete from relation where relationID=%d", recordIDToDelete];
+        NSString *query = [NSString stringWithFormat:@"DELETE FROM relation WHERE relationID=%d", recordIDToDelete];
         
         // Execute the query.
         [self.dbManager executeQuery:query];

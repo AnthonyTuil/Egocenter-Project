@@ -15,14 +15,13 @@
 
 
 @interface RelationViewController : UITableViewController <UITextFieldDelegate>{
-    NSMutableArray *relationArray;
     UITextField *nameTextField;
+    UITableViewCell *cell1;
     
 }
 
 
 @property (nonatomic) int recordIDToEdit;
-@property (nonatomic, strong) NSMutableArray * relationArray;
 
 
 

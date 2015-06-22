@@ -90,7 +90,7 @@
 
 -(void)loadData{
     // Form the query.
-    NSString *query_relation = @"select * from relation";
+    NSString *query_relation = @"SELECT * FROM relation";
     
     // Get the results.
     if (self.objects_relation != nil) {
@@ -156,8 +156,9 @@
 
 -(void)removeRelationAtIndex:(int)index
 {
-    NSLog(@"%i",[arrayViews count]-index-1);
-    RelationView *viewToRemove = [arrayViews objectAtIndex:[arrayViews count]-index-1];
+    NSLog(@"count arrayView : %lu",(unsigned long)[arrayViews count]);
+    NSLog(@"index to remove  : %lu",(unsigned long)(index));
+    RelationView *viewToRemove = [arrayViews objectAtIndex:index];
     
     
     [viewToRemove removeFromSuperview];
@@ -283,7 +284,7 @@ int indexMoving;
         // updatecoordinate
        
         //CGPoint new = [self convertCoordinate:touchLocation];
-        NSString* query = [NSString stringWithFormat:@"update relation set x=%f, y=%f where name='%@'", touchLocation.x,touchLocation.y,viewToMove.name.text];
+        NSString* query = [NSString stringWithFormat:@"UPDATE relation SET x=%f, y=%f WHERE name='%@'", touchLocation.x,touchLocation.y,viewToMove.name.text];
         
         //NSLog(@"%@",query);
         
@@ -291,7 +292,6 @@ int indexMoving;
         // Execute the query.
         [self.dbManager executeQuery:query];
         
-        // If the query was successfully executed then pop the view controller.
         if (self.dbManager.affectedRows != 0) {
             NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
             
@@ -319,20 +319,29 @@ int indexMoving;
 }
 
 -(void)updateDataAtIndex:(int)index{
-    NSLog(@"indice : %i",index);
     
-    NSString *query = [NSString stringWithFormat:@"select * from relation where relationID=%d", index];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM relation WHERE relationID=%d", index];
     
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     // Set the loaded data to the textfields.
     if ([results count]) {
-        NSString* nameToUpadate = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
+        NSString* nameToUpdate = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
+        
+        RelationView *relationToUpdate;
+        for (int i = 0; i<[arrayViews count]; i++) {
+            RelationView *test = [arrayViews objectAtIndex:i];
+            if (test.relation_id == index) {
+                relationToUpdate = test;
+                test.name.text = nameToUpdate;
+                [arrayViews replaceObjectAtIndex:i withObject:test];
+                
+                
+            }
+        }
         
         
-        RelationView *relationToUpdate = [arrayViews objectAtIndex:index-1];
-        relationToUpdate.name.text = nameToUpadate;
-        [arrayViews replaceObjectAtIndex:index-1 withObject:relationToUpdate];
+        
     
         
     }

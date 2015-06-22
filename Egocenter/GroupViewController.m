@@ -35,7 +35,7 @@
 
 -(void)loadData{
     // Form the query.
-    NSString *query = @"select * from groups";
+    NSString *query = @"SELECT * FROM groups";
     
     // Get the results.
     if (self.objects != nil) {
@@ -49,6 +49,27 @@
 }
 
 -(void)addAction:(id)sender{
+    //random color
+    CGFloat red = arc4random_uniform(255) / 255.0;
+    CGFloat green = arc4random_uniform(255) / 255.0;
+    CGFloat blue = arc4random_uniform(255) / 255.0;
+    int r,g,b;
+    
+    r = (int)(255.0 * red);
+    g = (int)(255.0 * green);
+    b = (int)(255.0 * blue);
+    
+    
+    NSString *color = [NSString stringWithFormat:@"%02x%02x%02x%02x", r, g, b, 1];
+    
+    //add to DB
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO groups values(%i, 'GROUP_NAME','%@')", self.recordIDToEdit,color];
+    
+    // Execute the query.
+    [self.dbManager executeQuery:query];
+    [self loadData];
+
+    
     
 }
 
@@ -65,9 +86,58 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     
-    return nil;
+    NSInteger indexOfColor = [self.dbManager.arrColumnNames indexOfObject:@"color"];
+    NSString *colorString = [NSString stringWithFormat:@"%@", [[self.objects objectAtIndex:indexPath.row] objectAtIndex:indexOfColor]];
+    
+    UIView * color = [[UIView alloc] init];
+    color.frame = CGRectMake(15, 14, 20, 20);
+    color.backgroundColor = [self colorFromHexString:colorString];
+    color.layer.cornerRadius = 10;
+
+    NSInteger indexOfname = [self.dbManager.arrColumnNames indexOfObject:@"name_group"];
+    UITextField *nameColor = [[UITextField alloc] init];
+    nameColor.frame = CGRectMake(45, 0, cell.frame.size.width, cell.frame.size.height);
+    nameColor.text =[NSString stringWithFormat:@"%@", [[self.objects objectAtIndex:indexPath.row] objectAtIndex:indexOfname]];
+    
+    
+    [cell.contentView addSubview:color];
+    [cell.contentView addSubview:nameColor];
+    
+    
+    return cell;
+
+    
+
 }
+
+-(UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        
+        
+       
+        
+        
+    }
+}
+
+
 /*
 #pragma mark - Navigation
 

@@ -10,6 +10,9 @@
 
 @interface Relation : NSObject{
     int relationID;
+    int sex;
+    int job;
+    int age;
     NSString *name;
     float x;
     float y;
@@ -21,7 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *colors;
 @property (nonatomic, strong) NSMutableArray *links;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic) int relationID;
+@property (nonatomic) int relationID,sex,job,age;
 @property (nonatomic) float x;
 @property (nonatomic) float y;
 
