@@ -27,6 +27,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+    
+    NSIndexPath *durPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSArray *paths = [NSArray arrayWithObject:durPath];
+    [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
+    //[self.tableView reloadData];
+}
 
 #pragma TableView Data Source 
 
@@ -37,7 +45,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 4;
+    return 5;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -60,7 +68,7 @@
 
         nameTextField = [[UITextField alloc] init];
         nameTextField.placeholder = @"Name";
-        
+        nameTextField.tag = 0;
         nameTextField.frame = CGRectMake(20, 0, self.navigationController.view.frame.size.width, cell.frame.size.height);
         nameTextField.returnKeyType = UIReturnKeyDone;
         nameTextField.delegate = self;
@@ -80,7 +88,7 @@
         }
         
 
-        [cell addSubview:nameTextField];
+        [cell.contentView addSubview:nameTextField];
         return cell;
         
     }
@@ -118,7 +126,7 @@
         [cell.contentView addSubview:secondColor];
         [cell.contentView addSubview:thirdColor];
         
-        NSString *queryColor = [NSString stringWithFormat:@"SELECT * FROM groups WHERE ID_relation=%d",self.recordIDToEdit];
+        NSString *queryColor = [NSString stringWithFormat:@"SELECT groups.* FROM groups, relation_group WHERE relation_group.groupsID = groups.groupID AND relation_group.relationID = %i",self.recordIDToEdit];
         NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:queryColor]];
         // Set the loaded data to the textfields.
         if ([results count]) {
@@ -147,10 +155,11 @@
         return cell;
     }
     if (indexPath.row == 2) {
+     
         
+       
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:MyIdentifier];
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enquete_sex"]) {
-            
             cell.textLabel.text = @"Sex";
             cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
             
@@ -158,7 +167,6 @@
             NSArray *resutlSex = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:querySex]];
             if ([resutlSex count]) {
                 int sex = [[[resutlSex objectAtIndex:0] objectAtIndex:0] intValue];
-                NSLog(@"%i",sex);
                 switch (sex) {
                     case 0:
                         cell.detailTextLabel.text = @"Men";
@@ -179,6 +187,49 @@
             
         }
        return cell;
+    }
+    if (indexPath.row == 3) {
+        if (YES) {
+            // YES : [[NSUserDefaults standardUserDefaults] boolForKey:@"enquete_age"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.textLabel.text = @"Age";
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
+            
+            ageTextField = [[UITextField alloc] init];
+            ageTextField.placeholder = @"32";
+            ageTextField.tag = 1;
+            ageTextField.frame = CGRectMake(self.navigationController.view.frame.size.width-50, 0, 40, cell.frame.size.height);
+            ageTextField.returnKeyType = UIReturnKeyDone;
+            ageTextField.delegate = self;
+            ageTextField.textAlignment = NSTextAlignmentRight;
+            ageTextField.keyboardType = UIKeyboardTypeNumberPad;
+            
+            NSString *query = [NSString stringWithFormat:@"SELECT age FROM relation WHERE relationID=%d", self.recordIDToEdit];
+            
+            // Load the relevant data.
+            NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+            // Set the loaded data to the textfields.
+            if ([results count]) {
+                ageTextField.text = [[results objectAtIndex:0] objectAtIndex:0];
+            }
+            
+            
+            [cell addSubview:ageTextField];
+            return cell;
+
+        }
+        
+    }
+    if (indexPath.row == 4) {
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+        cell.textLabel.text = @"Job";
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
+        
+        
+
     }
     
    
@@ -214,6 +265,11 @@
         }
       
     }
+    if (indexPath.row == 4) {
+        JobViewController *jobVC = [[JobViewController alloc] init];
+        jobVC.recordIDToEdit = self.recordIDToEdit;
+        [self.navigationController pushViewController:jobVC animated:YES];
+    }
         
 }
 
@@ -235,35 +291,80 @@
 
 #pragma TextField Delegate
 
+
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     // Changer le titre de la vue
     
     // Prepare the query string.
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
+    if (textField.tag == 0) {
     
    
-    NSString* query = [NSString stringWithFormat:@"UPDATE relation SET name='%@' WHERE relationID=%d", nameTextField.text,self.recordIDToEdit];
+    NSString* query = [NSString stringWithFormat:@"UPDATE relation SET name='%@' WHERE relationID=%d", textField.text,self.recordIDToEdit];
     
-    
-    
-    // Execute the query.
+
     [self.dbManager executeQuery:query];
-    
-    // If the query was successfully executed then pop the view controller.
-   
     [self upDateGraphic];
-    // Changer le nom sur le graphique
+        
+    }
+    
+    if (textField.tag == 1) {
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        NSNumber* numberFromString = [formatter numberFromString:textField.text];
+        if (numberFromString) {
+        
+        NSString* query = [NSString stringWithFormat:@"UPDATE relation SET age=%i WHERE relationID=%d", [textField.text intValue],self.recordIDToEdit];
+        // Execute the query.
+        [self.dbManager executeQuery:query];
+        }else{
+            NSLog(@"not a number");
+        }
+
+    }
     
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [nameTextField resignFirstResponder];
-    if(nameTextField.text){
-        self.navigationItem.title = nameTextField.text;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if (textField.tag == 1) {
+        
+    if(range.length + range.location > textField.text.length)
+    {
+        return NO;
     }
     
-    [self upDateGraphic];
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return newLength <= 3;
+    }
     return YES;
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    
+    if (textField.tag == 0) {
+        if(textField.text){
+        self.navigationItem.title = textField.text;
+        }
+    
+        [self upDateGraphic];
+        return YES;
+    }
+    if (textField.tag == 1) {
+        
+    }
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (textField.tag == 0) {
+        if ([textField.text isEqualToString:@"Name"]) {
+            textField.text = @"";
+        }
+    }
+    
 }
 
 -(UIColor *)colorFromHexString:(NSString *)hexString {

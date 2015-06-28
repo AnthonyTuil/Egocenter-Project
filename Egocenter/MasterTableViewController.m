@@ -27,6 +27,11 @@
     UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     self.navigationItem.rightBarButtonItem = addBtn;
     
+   //NSString *deleteQuery = @"DELETE FROM groups";
+   //NSString *deleteQuery1 = @"DELETE FROM relation_group";
+   //[self.dbManager executeQuery:deleteQuery];
+   //[self.dbManager executeQuery:deleteQuery1];
+
     [self loadData];
     
 }
@@ -51,7 +56,6 @@
     if (self.objects != nil) {
         self.objects = nil;
     }
-    NSLog(@"ici yes");
     self.objects = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the table view.
@@ -77,6 +81,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     NSInteger indexOfname = [self.dbManager.arrColumnNames indexOfObject:@"name"];
@@ -95,9 +102,9 @@
     relationToAdd.y = ((float)arc4random() / ARC4RANDOM_MAX*421);
     relationToAdd.sex = 0;
     relationToAdd.age = 18;
-    relationToAdd.job =1;
+    relationToAdd.job = 1;
     
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO relation values(null, '%@', %f, %f,null,%i,null)", relationToAdd.name, relationToAdd.x, relationToAdd.y,relationToAdd.sex];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO relation values(null, '%@', %f, %f,%i,%i,%i)", relationToAdd.name, relationToAdd.x, relationToAdd.y,relationToAdd.age ,relationToAdd.sex,relationToAdd.job];
     
     // Execute the query.
     [self.dbManager executeQuery:query];
@@ -122,14 +129,6 @@
     RelationViewController *relationVC = [[RelationViewController alloc] init];
     relationVC.recordIDToEdit = [[[self.objects objectAtIndex:[self.objects count]-1] objectAtIndex:0] intValue];
     [self.navigationController pushViewController:relationVC animated:YES];
-
-    
-    
-    
-   
-    
-    
-    
 
 }
 

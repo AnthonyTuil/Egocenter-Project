@@ -11,12 +11,13 @@
 #import "MasterTableViewController.h"
 #import "DBManager.h"
 #import "GroupViewController.h"
-#import "GroupTableViewCell.h"
+#import "JobViewController.h"
 
 
 @interface RelationViewController : UITableViewController <UITextFieldDelegate>{
     UITextField *nameTextField;
     UITableViewCell *cell1;
+    UITextField *ageTextField;
     
 }
 

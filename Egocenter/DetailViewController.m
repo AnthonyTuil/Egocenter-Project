@@ -112,7 +112,6 @@
         relationToLoad.name =test;
         relationToLoad.x = x;
         relationToLoad.y = y;
-        NSLog(@"(%f,%f)",x,y);
         RelationView *relationViewToLoad = [[RelationView alloc] initRelationViewWithRelation:relationToLoad];
         
         [arrayViews addObject:relationViewToLoad];
@@ -156,9 +155,7 @@
 
 -(void)removeRelationAtIndex:(int)index
 {
-    NSLog(@"count arrayView : %lu",(unsigned long)[arrayViews count]);
-    NSLog(@"index to remove  : %lu",(unsigned long)(index));
-    RelationView *viewToRemove = [arrayViews objectAtIndex:index];
+        RelationView *viewToRemove = [arrayViews objectAtIndex:index];
     
     
     [viewToRemove removeFromSuperview];
@@ -292,13 +289,7 @@ int indexMoving;
         // Execute the query.
         [self.dbManager executeQuery:query];
         
-        if (self.dbManager.affectedRows != 0) {
-            NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
-            
-        }
-        else{
-            NSLog(@"Could not execute the query.");
-        }
+        
 
         
         

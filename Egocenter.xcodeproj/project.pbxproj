@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		336815D11B3462EE002B882D /* egocenter.sql in Resources */ = {isa = PBXBuildFile; fileRef = 336815D01B3462EE002B882D /* egocenter.sql */; };
+		332AF9B01B3C524100601371 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 332AF9AF1B3C524100601371 /* Group.m */; };
 		336815D21B34633B002B882D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */; };
+		339219AD1B3EE712008B4E3C /* egocenter.sql in Resources */ = {isa = PBXBuildFile; fileRef = 339219AC1B3EE712008B4E3C /* egocenter.sql */; };
+		339219B01B3F066D008B4E3C /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219AF1B3F066D008B4E3C /* WelcomeViewController.m */; };
+		339219B31B3F0ACC008B4E3C /* LoginDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219B21B3F0ACC008B4E3C /* LoginDoctorViewController.m */; };
+		339219B61B3F0EB1008B4E3C /* MasterDoctorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219B51B3F0EB1008B4E3C /* MasterDoctorTableViewController.m */; };
+		339219BB1B3F0F4F008B4E3C /* DetailDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */; };
+		33E28E2C1B3AE52500AED2E5 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E28E2B1B3AE52500AED2E5 /* JobViewController.m */; };
 		9200268F1B2DF12C0098A66F /* RelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9200268E1B2DF12C0098A66F /* RelationView.m */; };
 		924537361B2328EF008229F7 /* Relation.m in Sources */ = {isa = PBXBuildFile; fileRef = 924537351B2328EF008229F7 /* Relation.m */; };
 		924B7ADF1B2340EF0005FC90 /* RelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924B7ADE1B2340EF0005FC90 /* RelationViewController.m */; };
@@ -31,7 +37,6 @@
 		927FA6511B303DA100053099 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6491B303DA100053099 /* UIWebView+AFNetworking.m */; };
 		927FA6541B303F9300053099 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6531B303F9300053099 /* LoginViewController.m */; };
 		927FA6571B305FF900053099 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6561B305FF900053099 /* GroupViewController.m */; };
-		927FA65A1B30634300053099 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927FA6591B30634300053099 /* GroupTableViewCell.m */; };
 		92AECB3D1B2B1805001B990E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3C1B2B1805001B990E /* Foundation.framework */; };
 		92AECB3F1B2B180B001B990E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3E1B2B180B001B990E /* UIKit.framework */; };
 		92AECB411B2B1816001B990E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB401B2B1816001B990E /* CoreGraphics.framework */; };
@@ -58,7 +63,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		336815D01B3462EE002B882D /* egocenter.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = egocenter.sql; sourceTree = "<group>"; };
+		332AF9AE1B3C524100601371 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		332AF9AF1B3C524100601371 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		339219AC1B3EE712008B4E3C /* egocenter.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = egocenter.sql; sourceTree = "<group>"; };
+		339219AE1B3F066D008B4E3C /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		339219AF1B3F066D008B4E3C /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		339219B11B3F0ACC008B4E3C /* LoginDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDoctorViewController.h; sourceTree = "<group>"; };
+		339219B21B3F0ACC008B4E3C /* LoginDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDoctorViewController.m; sourceTree = "<group>"; };
+		339219B41B3F0EB1008B4E3C /* MasterDoctorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterDoctorTableViewController.h; sourceTree = "<group>"; };
+		339219B51B3F0EB1008B4E3C /* MasterDoctorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterDoctorTableViewController.m; sourceTree = "<group>"; };
+		339219B91B3F0F4F008B4E3C /* DetailDoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDoctorViewController.h; sourceTree = "<group>"; };
+		339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDoctorViewController.m; sourceTree = "<group>"; };
+		33E28E2A1B3AE52500AED2E5 /* JobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobViewController.h; sourceTree = "<group>"; };
+		33E28E2B1B3AE52500AED2E5 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
 		9200268D1B2DF12C0098A66F /* RelationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationView.h; sourceTree = "<group>"; };
 		9200268E1B2DF12C0098A66F /* RelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationView.m; sourceTree = "<group>"; };
 		924537341B2328EF008229F7 /* Relation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relation.h; sourceTree = "<group>"; };
@@ -105,8 +122,6 @@
 		927FA6531B303F9300053099 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		927FA6551B305FF900053099 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
 		927FA6561B305FF900053099 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
-		927FA6581B30634300053099 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
-		927FA6591B30634300053099 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
 		92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		92AECB3C1B2B1805001B990E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92AECB3E1B2B180B001B990E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +169,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		339219B71B3F0ECA008B4E3C /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				927FA6521B303F9300053099 /* LoginViewController.h */,
+				927FA6531B303F9300053099 /* LoginViewController.m */,
+				92DCEACF1B1F596600760B35 /* MasterTableViewController.h */,
+				92DCEAD01B1F596600760B35 /* MasterTableViewController.m */,
+				92DCEAD21B1F5A0F00760B35 /* DetailViewController.h */,
+				92DCEAD31B1F5A0F00760B35 /* DetailViewController.m */,
+				924B7ADD1B2340EF0005FC90 /* RelationViewController.h */,
+				924B7ADE1B2340EF0005FC90 /* RelationViewController.m */,
+				927FA6551B305FF900053099 /* GroupViewController.h */,
+				927FA6561B305FF900053099 /* GroupViewController.m */,
+				33E28E2A1B3AE52500AED2E5 /* JobViewController.h */,
+				33E28E2B1B3AE52500AED2E5 /* JobViewController.m */,
+			);
+			name = Patient;
+			sourceTree = "<group>";
+		};
+		339219B81B3F0ED5008B4E3C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				339219B11B3F0ACC008B4E3C /* LoginDoctorViewController.h */,
+				339219B21B3F0ACC008B4E3C /* LoginDoctorViewController.m */,
+				339219B41B3F0EB1008B4E3C /* MasterDoctorTableViewController.h */,
+				339219B51B3F0EB1008B4E3C /* MasterDoctorTableViewController.m */,
+				339219B91B3F0F4F008B4E3C /* DetailDoctorViewController.h */,
+				339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */,
+			);
+			name = Doctor;
+			sourceTree = "<group>";
+		};
 		927FA61B1B303D9B00053099 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,11 +266,11 @@
 		92AECB461B2B18DC001B990E /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				336815D01B3462EE002B882D /* egocenter.sql */,
-				927FA6581B30634300053099 /* GroupTableViewCell.h */,
-				927FA6591B30634300053099 /* GroupTableViewCell.m */,
+				339219AC1B3EE712008B4E3C /* egocenter.sql */,
 				92AECB431B2B18CC001B990E /* DBManager.h */,
 				92AECB441B2B18CC001B990E /* DBManager.m */,
+				332AF9AE1B3C524100601371 /* Group.h */,
+				332AF9AF1B3C524100601371 /* Group.m */,
 				9200268D1B2DF12C0098A66F /* RelationView.h */,
 				9200268E1B2DF12C0098A66F /* RelationView.m */,
 				924537341B2328EF008229F7 /* Relation.h */,
@@ -256,19 +303,13 @@
 			children = (
 				92DCEAAA1B1F56A100760B35 /* AppDelegate.h */,
 				92DCEAAB1B1F56A100760B35 /* AppDelegate.m */,
-				927FA6521B303F9300053099 /* LoginViewController.h */,
-				927FA6531B303F9300053099 /* LoginViewController.m */,
-				92DCEACF1B1F596600760B35 /* MasterTableViewController.h */,
-				92DCEAD01B1F596600760B35 /* MasterTableViewController.m */,
-				92DCEAD21B1F5A0F00760B35 /* DetailViewController.h */,
-				92DCEAD31B1F5A0F00760B35 /* DetailViewController.m */,
-				924B7ADD1B2340EF0005FC90 /* RelationViewController.h */,
-				924B7ADE1B2340EF0005FC90 /* RelationViewController.m */,
-				927FA6551B305FF900053099 /* GroupViewController.h */,
-				927FA6561B305FF900053099 /* GroupViewController.m */,
+				339219AE1B3F066D008B4E3C /* WelcomeViewController.h */,
+				339219AF1B3F066D008B4E3C /* WelcomeViewController.m */,
+				92AECB461B2B18DC001B990E /* Object */,
+				339219B81B3F0ED5008B4E3C /* Doctor */,
+				339219B71B3F0ECA008B4E3C /* Patient */,
 				92DCEAB01B1F56A100760B35 /* ViewController.h */,
 				92DCEAB11B1F56A100760B35 /* ViewController.m */,
-				92AECB461B2B18DC001B990E /* Object */,
 				92DCEAB31B1F56A100760B35 /* Main.storyboard */,
 				92DCEAB61B1F56A100760B35 /* Images.xcassets */,
 				92DCEAB81B1F56A100760B35 /* LaunchScreen.xib */,
@@ -353,6 +394,7 @@
 				TargetAttributes = {
 					92DCEAA21B1F56A100760B35 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = P2M6S8VCGT;
 					};
 					92DCEABE1B1F56A200760B35 = {
 						CreatedOnToolsVersion = 6.2;
@@ -387,7 +429,7 @@
 				92DCEAB51B1F56A100760B35 /* Main.storyboard in Resources */,
 				92DCEABA1B1F56A100760B35 /* LaunchScreen.xib in Resources */,
 				92DCEAB71B1F56A100760B35 /* Images.xcassets in Resources */,
-				336815D11B3462EE002B882D /* egocenter.sql in Resources */,
+				339219AD1B3EE712008B4E3C /* egocenter.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,26 +454,31 @@
 				92DCEAD11B1F596600760B35 /* MasterTableViewController.m in Sources */,
 				927FA64A1B303DA100053099 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				927FA6541B303F9300053099 /* LoginViewController.m in Sources */,
-				927FA65A1B30634300053099 /* GroupTableViewCell.m in Sources */,
 				927FA64E1B303DA100053099 /* UIImageView+AFNetworking.m in Sources */,
+				339219BB1B3F0F4F008B4E3C /* DetailDoctorViewController.m in Sources */,
 				927FA6341B303D9C00053099 /* AFURLConnectionOperation.m in Sources */,
 				927FA64B1B303DA100053099 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				927FA6511B303DA100053099 /* UIWebView+AFNetworking.m in Sources */,
 				927FA62F1B303D9C00053099 /* AFHTTPRequestOperation.m in Sources */,
+				339219B01B3F066D008B4E3C /* WelcomeViewController.m in Sources */,
 				927FA6311B303D9C00053099 /* AFHTTPSessionManager.m in Sources */,
 				927FA64C1B303DA100053099 /* UIAlertView+AFNetworking.m in Sources */,
 				927FA6351B303D9C00053099 /* AFURLRequestSerialization.m in Sources */,
 				92AECB451B2B18CC001B990E /* DBManager.m in Sources */,
 				927FA6371B303D9C00053099 /* AFURLSessionManager.m in Sources */,
+				339219B61B3F0EB1008B4E3C /* MasterDoctorTableViewController.m in Sources */,
 				9200268F1B2DF12C0098A66F /* RelationView.m in Sources */,
 				927FA6301B303D9C00053099 /* AFHTTPRequestOperationManager.m in Sources */,
+				33E28E2C1B3AE52500AED2E5 /* JobViewController.m in Sources */,
 				927FA64F1B303DA100053099 /* UIProgressView+AFNetworking.m in Sources */,
 				924537361B2328EF008229F7 /* Relation.m in Sources */,
 				927FA64D1B303DA100053099 /* UIButton+AFNetworking.m in Sources */,
 				927FA6361B303D9C00053099 /* AFURLResponseSerialization.m in Sources */,
+				339219B31B3F0ACC008B4E3C /* LoginDoctorViewController.m in Sources */,
 				92DCEAAC1B1F56A100760B35 /* AppDelegate.m in Sources */,
 				92DCEAB21B1F56A100760B35 /* ViewController.m in Sources */,
 				927FA6501B303DA100053099 /* UIRefreshControl+AFNetworking.m in Sources */,
+				332AF9B01B3C524100601371 /* Group.m in Sources */,
 				92DCEAA91B1F56A100760B35 /* main.m in Sources */,
 				92DCEAD41B1F5A0F00760B35 /* DetailViewController.m in Sources */,
 			);
@@ -557,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Egocenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -567,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Egocenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

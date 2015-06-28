@@ -18,6 +18,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.navigationController.navigationItem.title = @"Patient";
+
     [self configureView];
     
     // Do any additional setup after loading the view.
@@ -62,56 +64,52 @@
     
 }
 
--(void)logInAction{
-    
-            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"enquete_nb_cadran"];
-            [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"enquete_nb_zone"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_age"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_sex"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_job"];
-            
-            
-            
-            [[NSUserDefaults standardUserDefaults] setObject:emailTextField.text forKey:@"mail"];
-            [[NSUserDefaults standardUserDefaults] setObject:tokenTextField.text forKey:@"token"];
-            
-            // app delegate present splitviewcontroller
-            
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate setSplitViewController];
 
-    
-    
-}
-/*
+
 -(void)logInAction{
     // send request
     
      if (emailTextField.text && tokenTextField.text) {
          // les deux champs sont remplis
+         NSLog(@"champs bien remplis");
          if ([self isValidEmail:emailTextField.text]) {
              // l'email est bien de type email
          
-         
+             NSLog(@"email valid");
          AFHTTPRequestOperationManager *managerToken = [AFHTTPRequestOperationManager manager];
          NSDictionary *parameters = @{@"email": emailTextField.text,
                                  @"token": tokenTextField.text
                                       };
          
-         [managerToken POST:@"adresse serveur" parameters:parameters success:^(AFHTTPRequestOperation *operationToken, id responseToken) {
+        
+         [managerToken POST:@"http://egocenter.telecom-paristech.fr/egocenter/v1/get_survey" parameters:parameters success:^(AFHTTPRequestOperation *operationToken, id responseToken) {
         
              // get reponse serveur
-        NSLog(@"%@",[responseToken objectForKey:@"result"]);
+             if ([[responseToken objectForKey:@"error"] intValue] == 0) {
+             
         
         // recuperer infos enquete
         
         //Sauvegarde des infos sur l'enquête
              
-            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"enquete_nb_cadran"];
-            [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"enquete_nb_zone"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_age"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_sex"];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enquete_job"];
+            [[NSUserDefaults standardUserDefaults]
+             setInteger:[[[responseToken objectForKey:@"survey"] objectForKey:@"dial"] intValue] forKey:@"enquete_nb_cadran"];
+             
+            [[NSUserDefaults standardUserDefaults]
+             setInteger:[[[responseToken objectForKey:@"survey"] objectForKey:@"circle"] intValue] forKey:@"enquete_nb_zone"];
+             
+             int ageInt = [[[responseToken objectForKey:@"survey"] objectForKey:@"age"] intValue];
+             BOOL ageBool = ageInt != 0;
+            [[NSUserDefaults standardUserDefaults] setBool:ageBool forKey:@"enquete_age"];
+             
+             int sexInt = [[[responseToken objectForKey:@"survey"] objectForKey:@"sex"] intValue];
+             BOOL sexBool = sexInt != 0;
+             NSLog(@"%i",sexBool);
+            [[NSUserDefaults standardUserDefaults] setBool:sexBool forKey:@"enquete_sex"];
+             
+             int jobInt = [[[responseToken objectForKey:@"survey"] objectForKey:@"job"] intValue];
+             BOOL jobBool = jobInt != 0;
+            [[NSUserDefaults standardUserDefaults] setBool:jobBool forKey:@"enquete_job"];
              
              
              
@@ -123,37 +121,31 @@
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate setSplitViewController];
             
-        
+             }else{
+                 NSLog(@"%@",[[responseToken objectForKey:@"message"] stringValue]);
+             }
 
     
         } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-            
+            NSLog(@"Failure : %@",errorToken);
             // failure
             }]; 
     
     
-    if (emailTextField.text && tokenTextField.text) {
-        [[NSUserDefaults standardUserDefaults] setObject:emailTextField.text forKey:@"mail"];
-        [[NSUserDefaults standardUserDefaults] setObject:tokenTextField.text forKey:@"token"];
+           
+
         
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate setSplitViewController];
-        
-    }
+         }else{
+             NSLog(@"Ce n'est pas de la forme email");
+         }
     
      }else{
-         NSLog(@"Mail not valid");
+         NSLog(@"un des deux champs vide");
      }
-        
-     }else{
-         NSLog(@"One field is empty");
-
-     }
-         
     
     
 }
-*/
+
 
 -(BOOL)isValidEmail:(NSString *)checkString
 {
@@ -167,7 +159,6 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField
 {
-    NSLog(@"ici");
     NSInteger nextTag = textField.tag + 1;
     // Try to find next responder
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
@@ -184,6 +175,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:nil forKey:@"isPatient"];
+        
+    }
+    [super viewWillDisappear:animated];
 }
 
 /*

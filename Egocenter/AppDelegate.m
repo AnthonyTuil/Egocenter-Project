@@ -19,9 +19,16 @@
     
     splitViewController = [[UISplitViewController alloc] init];
     
+    splitViewControllerDoctor = [[UISplitViewController alloc] init];
+    
     MasterTableViewController *masterViewController = [[MasterTableViewController alloc] init];
     DetailViewController *detailViewController = [[DetailViewController alloc] init];
     
+    MasterDoctorTableViewController *masterDoctorViewController = [[MasterDoctorTableViewController alloc] init];
+    DetailDoctorViewController *detailDoctorViewController = [[DetailDoctorViewController alloc] init];
+    
+    UINavigationController *rootNavD = [[UINavigationController alloc] initWithRootViewController:masterDoctorViewController];
+    UINavigationController *detailNavD = [[UINavigationController alloc] initWithRootViewController:detailDoctorViewController];
     
     UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:detailViewController];
@@ -29,20 +36,58 @@
     splitViewController.viewControllers = [NSArray arrayWithObjects:rootNav,detailNav, nil];
     splitViewController.delegate = detailViewController;
     
+    splitViewControllerDoctor.viewControllers = [NSArray arrayWithObjects:rootNavD,detailNavD, nil];
+    splitViewControllerDoctor.delegate = detailDoctorViewController;
+    
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    LoginDoctorViewController *loginDoctorViewController = [[LoginDoctorViewController alloc] init];
+    WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc] init];
+    
+    UINavigationController *welcomeNav = [[UINavigationController alloc] initWithRootViewController:welcomeViewController];
+    
     
     NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
     NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
     
-    NSLog(@"%@,%@",email,token);
+    NSString *emailDoctor = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail_doctor"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"pass_doctor"];
     
-    if (token && email) {
-        [self.window setRootViewController:(UIViewController*)splitViewController];
-    }else {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isPatient"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"isDoctor"] ) {
+        // deja passé le welcome
         
-        [self.window setRootViewController:(UIViewController*)loginViewController];
-
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isPatient"]) {
+            // c'est un patient
+            if (token && email) {
+                // deja connecté avec un token et mail
+                [self.window setRootViewController:(UIViewController*)splitViewController];
+            }else {
+                
+                [self.window setRootViewController:(UIViewController*)loginViewController];
+                
+            }
+        }else if([[NSUserDefaults standardUserDefaults] boolForKey:@"isDoctor"]){
+            // c'est un docteur
+            if (emailDoctor && password) {
+                // deja connecté avec mail et pass
+                [self.window setRootViewController:(UIViewController*)splitViewControllerDoctor];
+                
+            }else{
+                
+                [self.window setRootViewController:(UIViewController*)loginDoctorViewController];
+                
+            }
+            
+        }
+        
+        
+    }else{
+        
+        [self.window setRootViewController:(UIViewController*)welcomeNav];
     }
+    
+    
+    
     
     
     [self.window makeKeyAndVisible];
@@ -51,8 +96,26 @@
     return YES;
 }
 
+
+
+
+
 -(void)setSplitViewController{
-    [self.window setRootViewController:splitViewController];
+    
+    NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:@"token"];
+    
+    NSString *emailDoctor = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail_doctor"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"pass_doctor"];
+    
+    if (email && token) {
+         [self.window setRootViewController:splitViewController];
+    }
+    if (emailDoctor && password) {
+        [self.window setRootViewController:splitViewControllerDoctor];
+    }
+    
+   
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

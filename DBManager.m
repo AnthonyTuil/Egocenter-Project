@@ -143,7 +143,7 @@
                 }
                 else {
                     // If could not execute the query show the error message on the debugger.
-                    NSLog(@"DB Error: %s", sqlite3_errmsg(sqlite3Database));
+                   // NSLog(@"DB Error: %s", sqlite3_errmsg(sqlite3Database));
                 }
             }
         }

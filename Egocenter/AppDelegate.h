@@ -12,9 +12,15 @@
 #import "DetailViewController.h"
 #import "AFNetworking.h"
 #import "LoginViewController.h"
+#import "WelcomeViewController.h"
+#import "LoginDoctorViewController.h"
+#import "MasterDoctorTableViewController.h"
+#import "DetailDoctorViewController.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     UISplitViewController *splitViewController;
+    UISplitViewController *splitViewControllerDoctor;
 
 }
 
