@@ -189,7 +189,7 @@
        return cell;
     }
     if (indexPath.row == 3) {
-        if (YES) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enquete_age"]) {
             // YES : [[NSUserDefaults standardUserDefaults] boolForKey:@"enquete_age"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
@@ -222,13 +222,14 @@
         
     }
     if (indexPath.row == 4) {
-        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enquete_job"]) {
+          
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
         cell.textLabel.text = @"Job";
         cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
         
-        
+        }
 
     }
     

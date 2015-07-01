@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "DBManager.h"
 #import "AFNetworking.h"
+#import "DetailDoctorViewController.h"
+#import <stdlib.h>
 
 @interface MasterDoctorTableViewController : UITableViewController
 
 
 
 @property (nonatomic, strong) DBManager *dbManager;
+-(void)loadData;
 @end

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>71E10003-907E-4C4B-8A8E-277103A010D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Egocenter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A648D2ECF4491A5F0CE013DAC2C26726373203F1</key>
+		<string>https://github.com/AnthonyTuil/Egocenter.git</string>
+		<key>F9329A80941C047817AB2DF568101030268371FC</key>
+		<string>https://github.com/AnthonyTuil/Egocenter-Project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Egocenter.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A648D2ECF4491A5F0CE013DAC2C26726373203F1</key>
+		<string>..Egocenter</string>
+		<key>F9329A80941C047817AB2DF568101030268371FC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AnthonyTuil/Egocenter-Project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F9329A80941C047817AB2DF568101030268371FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9329A80941C047817AB2DF568101030268371FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Egocenter</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A648D2ECF4491A5F0CE013DAC2C26726373203F1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EgocenterEgocenter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

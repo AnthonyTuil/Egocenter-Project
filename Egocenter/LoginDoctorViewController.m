@@ -148,8 +148,7 @@
 -(void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         
-        [[NSUserDefaults standardUserDefaults] setBool:nil forKey:@"isDoctor"];
-        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isDoctor"];
             }
     [super viewWillDisappear:animated];
 }

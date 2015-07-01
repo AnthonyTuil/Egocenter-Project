@@ -112,6 +112,7 @@
         relationToLoad.name =test;
         relationToLoad.x = x;
         relationToLoad.y = y;
+        // relation.colors add array colors from db 
         RelationView *relationViewToLoad = [[RelationView alloc] initRelationViewWithRelation:relationToLoad];
         
         [arrayViews addObject:relationViewToLoad];
@@ -195,6 +196,8 @@ int indexMoving;
     int indexToMove = 0;
     
     // get the nearest relation
+    if ([arrayViews count]) {
+     
     for (int i =0; i<[arrayViews count]; i++) {
         RelationView *viewToCompare = [arrayViews objectAtIndex:i];
         double distanceToCompare = sqrt( (viewToCompare.center.x-touchLocation.x)*(viewToCompare.center.x-touchLocation.x)
@@ -213,7 +216,7 @@ int indexMoving;
         isLinking = NO;
         hasStarted = YES;
     }
-    
+    }
     
 }
 
@@ -309,9 +312,18 @@ int indexMoving;
     
 }
 
+-(UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
 -(void)updateDataAtIndex:(int)index{
     
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM relation WHERE relationID=%d", index];
+    
     
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
@@ -319,6 +331,7 @@ int indexMoving;
     if ([results count]) {
         NSString* nameToUpdate = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
         
+
         RelationView *relationToUpdate;
         for (int i = 0; i<[arrayViews count]; i++) {
             RelationView *test = [arrayViews objectAtIndex:i];
@@ -331,19 +344,23 @@ int indexMoving;
             }
         }
         
-        
-        
-    
-        
     }
+    
+    
     
     
 }
 
+                                               
 
 -(CGPoint)convertCoordinate:(CGPoint)point{
     return  CGPointMake((point.x-circleView.frame.size.width/2)/(circleView.frame.size.width/2) , (circleView.frame.size.height/2-point.y)/(circleView.frame.size.height/2));
 }
+                                               
+                                               
+                                               
+                                               
+                                               
 
 
 - (void)didReceiveMemoryWarning {

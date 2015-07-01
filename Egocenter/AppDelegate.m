@@ -25,10 +25,10 @@
     DetailViewController *detailViewController = [[DetailViewController alloc] init];
     
     MasterDoctorTableViewController *masterDoctorViewController = [[MasterDoctorTableViewController alloc] init];
-    DetailDoctorViewController *detailDoctorViewController = [[DetailDoctorViewController alloc] init];
+    //DetailDoctorViewController *detailDoctorViewController = [[DetailDoctorViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *rootNavD = [[UINavigationController alloc] initWithRootViewController:masterDoctorViewController];
-    UINavigationController *detailNavD = [[UINavigationController alloc] initWithRootViewController:detailDoctorViewController];
+    //UINavigationController *detailNavD = [[UINavigationController alloc] initWithRootViewController:detailDoctorViewController];
     
     UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:detailViewController];
@@ -36,8 +36,9 @@
     splitViewController.viewControllers = [NSArray arrayWithObjects:rootNav,detailNav, nil];
     splitViewController.delegate = detailViewController;
     
-    splitViewControllerDoctor.viewControllers = [NSArray arrayWithObjects:rootNavD,detailNavD, nil];
-    splitViewControllerDoctor.delegate = detailDoctorViewController;
+    splitViewControllerDoctor.viewControllers = [NSArray arrayWithObjects:rootNavD, nil];
+    
+    //splitViewControllerDoctor.delegate = detailDoctorViewController;
     
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
     LoginDoctorViewController *loginDoctorViewController = [[LoginDoctorViewController alloc] init];

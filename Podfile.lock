@@ -1,0 +1,10 @@
+PODS:
+  - THContactPicker (1.1.1)
+
+DEPENDENCIES:
+  - THContactPicker (~> 1.1.1)
+
+SPEC CHECKSUMS:
+  THContactPicker: 69a146b4ab9ef39cd2520977acb344fe27a59f81
+
+COCOAPODS: 0.37.2
