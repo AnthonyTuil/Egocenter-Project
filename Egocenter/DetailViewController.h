@@ -10,10 +10,13 @@
 #import "Relation.h"
 #import "DBManager.h"
 #import "RelationView.h"
+#import "PopoverDoctorTableViewController.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>{
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate,UIPopoverControllerDelegate>{
     UIView *circleView;
     NSMutableArray *arrayViews;
+    
+    UIBarButtonItem *button;
 }
 
 

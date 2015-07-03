@@ -122,7 +122,7 @@
             [appDelegate setSplitViewController];
             
              }else{
-                 NSLog(@"%@",[[responseToken objectForKey:@"message"] stringValue]);
+                 NSLog(@"%@",[responseToken objectForKey:@"message"]);
              }
 
     

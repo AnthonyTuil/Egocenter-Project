@@ -44,7 +44,9 @@
     LoginDoctorViewController *loginDoctorViewController = [[LoginDoctorViewController alloc] init];
     WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc] init];
     
-    UINavigationController *welcomeNav = [[UINavigationController alloc] initWithRootViewController:welcomeViewController];
+    welcomeNav = [[UINavigationController alloc] initWithRootViewController:welcomeViewController];
+    UINavigationController *loginNavD = [[UINavigationController alloc] initWithRootViewController:loginDoctorViewController];
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
     
     NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
@@ -64,7 +66,7 @@
                 [self.window setRootViewController:(UIViewController*)splitViewController];
             }else {
                 
-                [self.window setRootViewController:(UIViewController*)loginViewController];
+                [self.window setRootViewController:(UIViewController*)loginNav];
                 
             }
         }else if([[NSUserDefaults standardUserDefaults] boolForKey:@"isDoctor"]){
@@ -75,7 +77,7 @@
                 
             }else{
                 
-                [self.window setRootViewController:(UIViewController*)loginDoctorViewController];
+                [self.window setRootViewController:(UIViewController*)loginNavD];
                 
             }
             
@@ -98,7 +100,24 @@
 }
 
 
+-(void)logOut{
+    // init nsuser defaut
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isPatient"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isDoctor"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"mail"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"mail_doctor"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"pass_doctor"];
 
+    
+    // set WelcomeVC
+    [self.window setRootViewController:(UIViewController*)welcomeNav];
+
+    
+}
 
 
 -(void)setSplitViewController{

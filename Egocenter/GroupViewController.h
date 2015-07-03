@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DBManager.h"
 #import "Group.h"
+#import "DetailViewController.h"
 
 @interface GroupViewController : UITableViewController<UITextFieldDelegate>{
     

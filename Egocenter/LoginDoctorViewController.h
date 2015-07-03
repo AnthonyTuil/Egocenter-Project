@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "AFNetworking.h"
+#import "RegisterViewController.h"
 
 @interface LoginDoctorViewController : UIViewController<UITextFieldDelegate>{
     UITextField *emailTextField;

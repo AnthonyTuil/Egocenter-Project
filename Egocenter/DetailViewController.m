@@ -27,6 +27,9 @@
     
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(doneEditing:)];
  
+    button = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleDone target:self action:@selector(visualise:)];
+    self.navigationItem.leftBarButtonItem = button;
+    
     self.navigationItem.rightBarButtonItem = doneBtn;
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"egocenter.sql"];
     
@@ -37,10 +40,24 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)visualise:(id)sender{
+    
+    PopoverDoctorTableViewController *podVC = [[PopoverDoctorTableViewController alloc] init];
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:podVC];
+    popover.delegate = self;
+    popover.popoverContentSize = CGSizeMake(200, 100); //your custom size.
+    UIBarButtonItem *item = button ;
+    UIView *view = [item valueForKey:@"view"];
+    
+    [popover presentPopoverFromRect:view.frame inView:self.view permittedArrowDirections: UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionUp animated:YES];
+
+    
+}
+
 -(void)configureView{
     
     //int nb_cadran = [[NSUserDefaults standardUserDefaults] integerForKey:@"enquete_nb_cadran"];
-    int nb_zone = 3;
+    int nb_zone = [[NSUserDefaults standardUserDefaults] integerForKey:@"enquete_nb_zone"];
     
     
     circleView = [[UIView alloc] init];
@@ -104,14 +121,23 @@
     for (int i =0; i< [self.objects_relation count]; i++) {
         
         NSString *test = [NSString stringWithFormat:@"%@", [[self.objects_relation objectAtIndex:i] objectAtIndex:indexOfname]];
-        float x = [[[self.objects_relation objectAtIndex:i] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"x"]] floatValue];
-        float y = [[[self.objects_relation objectAtIndex:i] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"y"]] floatValue];
+        float x = [[[self.objects_relation objectAtIndex:i] objectAtIndex:2] floatValue];
+        float y = [[[self.objects_relation objectAtIndex:i] objectAtIndex:3] floatValue];
 
         
         Relation *relationToLoad = [[Relation alloc] init];
         relationToLoad.name =test;
         relationToLoad.x = x;
         relationToLoad.y = y;
+        
+        int id_relation = [[[self.objects_relation objectAtIndex:i] objectAtIndex:0] intValue];
+        
+        NSString *queryColor = [NSString stringWithFormat:@"SELECT groups.* FROM groups, relation_group WHERE relation_group.groupsID = groups.groupID AND relation_group.relationID = %i",id_relation];
+        NSArray *result = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:queryColor]];
+        if (result) {
+            relationToLoad.colors = [NSMutableArray arrayWithObjects:[self colorFromHexString:[[result objectAtIndex:0] objectAtIndex:2]], nil];
+        }
+        
         // relation.colors add array colors from db 
         RelationView *relationViewToLoad = [[RelationView alloc] initRelationViewWithRelation:relationToLoad];
         
@@ -156,11 +182,16 @@
 
 -(void)removeRelationAtIndex:(int)index
 {
-        RelationView *viewToRemove = [arrayViews objectAtIndex:index];
     
+ 
     
-    [viewToRemove removeFromSuperview];
-    [arrayViews removeObjectAtIndex:[arrayViews count]-index-1];
+    for (int i =0; i< [arrayViews count]; i++) {
+        RelationView *test = [arrayViews objectAtIndex:i];
+        if (test.relation_id == index) {
+            [test removeFromSuperview];
+            [arrayViews removeObjectAtIndex:i];
+        }
+    }
     
     
 }
@@ -321,15 +352,16 @@ int indexMoving;
 }
 
 -(void)updateDataAtIndex:(int)index{
-    
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM relation WHERE relationID=%d", index];
-    
     
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     // Set the loaded data to the textfields.
     if ([results count]) {
+
         NSString* nameToUpdate = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
+        NSString *queryColor = [NSString stringWithFormat:@"SELECT groups.* FROM groups, relation_group WHERE relation_group.groupsID = groups.groupID AND relation_group.relationID = %i",index];
+        NSArray *result = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:queryColor]];
         
 
         RelationView *relationToUpdate;
@@ -338,6 +370,10 @@ int indexMoving;
             if (test.relation_id == index) {
                 relationToUpdate = test;
                 test.name.text = nameToUpdate;
+                if ([result count]) {
+                    NSString *color = [[result objectAtIndex:0] objectAtIndex:2];
+                    test.circle.backgroundColor = [self colorFromHexString:color];
+                }
                 [arrayViews replaceObjectAtIndex:i withObject:test];
                 
                 

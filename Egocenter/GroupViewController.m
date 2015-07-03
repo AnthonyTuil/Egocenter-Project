@@ -56,7 +56,6 @@
     // Reload the table view.
     
     NSString *query1 = [NSString stringWithFormat:@"SELECT * FROM relation_group WHERE relationID=%i",self.recordIDToEdit];
-     NSLog(@"On va ici");
     // Get the results.
     if (self.selected != nil) {
         self.selected = nil;
@@ -72,14 +71,12 @@
     self.indexes = [[NSMutableArray alloc] init];
     
     if ([self.selected count]) {
-        NSLog(@"self.selected is not vide");
         for (int i = 0; i< [self.objects count]; i++) {
             int groupID = [[[self.objects objectAtIndex:i] objectAtIndex:0] intValue];
             for (int j = 0; j <[self.selected count]; j++) {
                 int groupRelationId = [[[self.selected objectAtIndex:j] objectAtIndex:0] intValue];
                 if (groupID == groupRelationId) {
                     
-                        NSLog(@"index %i is selected",i);
                         [self.indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
                     
                 }
@@ -182,7 +179,6 @@
     
     if ([self.indexes containsObject:indexPath]) {
         
-        NSLog(@"contains object");
         UITableViewCell* uncheckCell = [tableView
                                         cellForRowAtIndexPath:indexPath];
         uncheckCell.accessoryType = UITableViewCellAccessoryNone;
@@ -265,7 +261,6 @@
         
         for (int i =0; i< [self.indexes count]; i++) {
             //
-            NSLog(@"%lu",(unsigned long)[self.indexes count]);
             NSIndexPath *indexPathToAdd = [self.indexes objectAtIndex:i];
             
             int groupeId = [[[self.objects objectAtIndex:indexPathToAdd.row] objectAtIndex:0] intValue];
@@ -273,12 +268,26 @@
             
             NSString* query1 = [NSString stringWithFormat:@"INSERT INTO relation_group values(%i, %i)",groupeId, self.recordIDToEdit];
             [self.dbManager executeQuery:query1];
-            
+            [self upDateGraphic];
         }
      }
     [super viewWillDisappear:animated];
 }
 
+
+-(void)upDateGraphic{
+    
+    id detail = self.splitViewController.viewControllers[1];
+    if ([detail isKindOfClass:[UINavigationController class]]) {
+        detail = [((UINavigationController*)detail).viewControllers firstObject];
+    }
+    if ([detail isKindOfClass:[DetailViewController class]]) {
+        
+        [detail updateDataAtIndex:self.recordIDToEdit];
+    }
+    
+    
+}
 
 
 /*

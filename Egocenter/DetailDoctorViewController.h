@@ -12,9 +12,10 @@
 #import "MasterDoctorTableViewController.h"
 #import "QuadranViewController.h"
 #import "SendSurveyViewController.h"
+#import "PopoverDoctorTableViewController.h"
 
 
-@interface DetailDoctorViewController : UITableViewController<UISplitViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate>{
+@interface DetailDoctorViewController : UITableViewController<UISplitViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate,UIPopoverControllerDelegate>{
     UITextField *titleTextField;
     UITextView *instructionTextView;
     UISwitch *ageSwitch;
@@ -23,6 +24,8 @@
     
     UILabel* detail1;
     UILabel* detail;
+    
+    UIBarButtonItem *button;
 
 }
 

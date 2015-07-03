@@ -33,7 +33,12 @@
     circle = [[UIView alloc] init];
     circle.frame = CGRectMake(d/20, d/20, d/20, d/20);
     circle.layer.cornerRadius = circle.frame.size.width/2;
-    circle.backgroundColor = [UIColor cyanColor];
+    if ([relation.colors count]) {
+        circle.backgroundColor = relation.colors[0];
+    }else{
+        circle.backgroundColor = [UIColor grayColor];
+    }
+    
     
     name = [[UILabel alloc] init];
     name.frame = CGRectMake(0, 0, self.frame.size.width, d/20);

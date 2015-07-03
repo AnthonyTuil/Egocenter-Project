@@ -19,6 +19,8 @@
 		339219B61B3F0EB1008B4E3C /* MasterDoctorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219B51B3F0EB1008B4E3C /* MasterDoctorTableViewController.m */; };
 		339219BB1B3F0F4F008B4E3C /* DetailDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */; };
 		33E28E2C1B3AE52500AED2E5 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E28E2B1B3AE52500AED2E5 /* JobViewController.m */; };
+		33F04EB81B45754B0084809A /* PopoverDoctorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F04EB71B45754B0084809A /* PopoverDoctorTableViewController.m */; };
+		33FC050C1B44410500DB6F29 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FC050B1B44410500DB6F29 /* RegisterViewController.m */; };
 		9200268F1B2DF12C0098A66F /* RelationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9200268E1B2DF12C0098A66F /* RelationView.m */; };
 		924537361B2328EF008229F7 /* Relation.m in Sources */ = {isa = PBXBuildFile; fileRef = 924537351B2328EF008229F7 /* Relation.m */; };
 		924B7ADF1B2340EF0005FC90 /* RelationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924B7ADE1B2340EF0005FC90 /* RelationViewController.m */; };
@@ -86,6 +88,10 @@
 		339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDoctorViewController.m; sourceTree = "<group>"; };
 		33E28E2A1B3AE52500AED2E5 /* JobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobViewController.h; sourceTree = "<group>"; };
 		33E28E2B1B3AE52500AED2E5 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
+		33F04EB61B45754B0084809A /* PopoverDoctorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverDoctorTableViewController.h; sourceTree = "<group>"; };
+		33F04EB71B45754B0084809A /* PopoverDoctorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverDoctorTableViewController.m; sourceTree = "<group>"; };
+		33FC050A1B44410500DB6F29 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		33FC050B1B44410500DB6F29 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		59B036411FDA8E8DD6AFBC40 /* Pods-Egocenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Egocenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Egocenter/Pods-Egocenter.debug.xcconfig"; sourceTree = "<group>"; };
 		9200268D1B2DF12C0098A66F /* RelationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationView.h; sourceTree = "<group>"; };
 		9200268E1B2DF12C0098A66F /* RelationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationView.m; sourceTree = "<group>"; };
@@ -207,10 +213,14 @@
 			children = (
 				339219B11B3F0ACC008B4E3C /* LoginDoctorViewController.h */,
 				339219B21B3F0ACC008B4E3C /* LoginDoctorViewController.m */,
+				33FC050A1B44410500DB6F29 /* RegisterViewController.h */,
+				33FC050B1B44410500DB6F29 /* RegisterViewController.m */,
 				339219B41B3F0EB1008B4E3C /* MasterDoctorTableViewController.h */,
 				339219B51B3F0EB1008B4E3C /* MasterDoctorTableViewController.m */,
 				339219B91B3F0F4F008B4E3C /* DetailDoctorViewController.h */,
 				339219BA1B3F0F4F008B4E3C /* DetailDoctorViewController.m */,
+				33F04EB61B45754B0084809A /* PopoverDoctorTableViewController.h */,
+				33F04EB71B45754B0084809A /* PopoverDoctorTableViewController.m */,
 				3386487A1B419C2000036772 /* DialViewController.h */,
 				3386487B1B419C2000036772 /* DialViewController.m */,
 				3386487D1B419C2B00036772 /* QuadranViewController.h */,
@@ -540,11 +550,13 @@
 				927FA6301B303D9C00053099 /* AFHTTPRequestOperationManager.m in Sources */,
 				33E28E2C1B3AE52500AED2E5 /* JobViewController.m in Sources */,
 				927FA64F1B303DA100053099 /* UIProgressView+AFNetworking.m in Sources */,
+				33FC050C1B44410500DB6F29 /* RegisterViewController.m in Sources */,
 				924537361B2328EF008229F7 /* Relation.m in Sources */,
 				927FA64D1B303DA100053099 /* UIButton+AFNetworking.m in Sources */,
 				927FA6361B303D9C00053099 /* AFURLResponseSerialization.m in Sources */,
 				339219B31B3F0ACC008B4E3C /* LoginDoctorViewController.m in Sources */,
 				92DCEAAC1B1F56A100760B35 /* AppDelegate.m in Sources */,
+				33F04EB81B45754B0084809A /* PopoverDoctorTableViewController.m in Sources */,
 				92DCEAB21B1F56A100760B35 /* ViewController.m in Sources */,
 				927FA6501B303DA100053099 /* UIRefreshControl+AFNetworking.m in Sources */,
 				332AF9B01B3C524100601371 /* Group.m in Sources */,

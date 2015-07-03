@@ -103,6 +103,7 @@
     relationToAdd.sex = 0;
     relationToAdd.age = 18;
     relationToAdd.job = 1;
+    relationToAdd.colors = [NSMutableArray arrayWithObjects:[self colorFromHexString:@"#FB4141"], nil];
     
     NSString *query = [NSString stringWithFormat:@"INSERT INTO relation values(null, '%@', %f, %f,%i,%i,%i)", relationToAdd.name, relationToAdd.x, relationToAdd.y,relationToAdd.age ,relationToAdd.sex,relationToAdd.job];
     
@@ -158,19 +159,20 @@
         // Delete the row from the data source
         
         
+    
+        int recordIDToDelete = [[[self.objects objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
+        //NSLog(@"%@",self.objects);
+        // Prepare the query.
+        
         id detail = self.splitViewController.viewControllers[1];
         if ([detail isKindOfClass:[UINavigationController class]]) {
             detail = [((UINavigationController*)detail).viewControllers firstObject];
         }
         if ([detail isKindOfClass:[DetailViewController class]]) {
             // code the retrieve relation in detail
-            [detail removeRelationAtIndex:(int)indexPath.row];
-            NSLog(@"indexpath row %i",(int)indexPath.row);
+            [detail removeRelationAtIndex:recordIDToDelete];
         }
 
-        int recordIDToDelete = [[[self.objects objectAtIndex:indexPath.row] objectAtIndex:0] intValue];
-        //NSLog(@"%@",self.objects);
-        // Prepare the query.
         NSString *query = [NSString stringWithFormat:@"DELETE FROM relation WHERE relationID=%d", recordIDToDelete];
         
         // Execute the query.
@@ -183,6 +185,14 @@
     }
 }
 
+
+-(UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
 
 
 

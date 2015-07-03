@@ -21,7 +21,7 @@
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(sendToServor:)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = doneBtn;
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Preview" style:UIBarButtonItemStyleDone target:self action:@selector(visualise:)];
+    button = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleDone target:self action:@selector(visualise:)];
     self.navigationItem.leftBarButtonItem = button;
     
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"egocenter.sql"];
@@ -41,6 +41,14 @@
 
 -(void)visualise:(id)sender{
     
+    PopoverDoctorTableViewController *podVC = [[PopoverDoctorTableViewController alloc] init];
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:podVC];
+    popover.delegate = self;
+    popover.popoverContentSize = CGSizeMake(200, 100); //your custom size.
+    UIBarButtonItem *item = button ;
+    UIView *view = [item valueForKey:@"view"];
+    
+    [popover presentPopoverFromRect:view.frame inView:self.view permittedArrowDirections: UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionUp animated:YES];
 }
 
 -(void)sendToServor:(id)sender{
@@ -187,6 +195,7 @@
                 instructionTextView.frame = CGRectMake(20, 0, cell.frame.size.width, cell.frame.size.height);
                 instructionTextView.text =[NSString stringWithFormat:@"%@",[[self.objects objectAtIndex:0] objectAtIndex:2]];
                 instructionTextView.delegate =self;
+                instructionTextView.autocorrectionType = UITextAutocorrectionTypeNo;
                 [cell.contentView addSubview:instructionTextView];
                 
             }

@@ -13,7 +13,7 @@
     int relation_id;
     UILabel *name;
     UIView *circle;
-    NSArray *arrayColor;
+    NSMutableArray *arrayColor;
     NSMutableArray *arrayLink;
     
 }

@@ -29,10 +29,6 @@
     
     emailTextField = [[UITextField alloc] init];
     passTextField = [[UITextField alloc] init];
-    createAccount = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [createAccount setTitle:@"créer un compte docteur" forState:UIControlStateNormal];
-    createAccount.frame = CGRectMake(self.view.frame.size.width*0.3, 300, 200, 50);
-    [createAccount addTarget:self action:@selector(createAccount) forControlEvents:UIControlEventTouchUpInside];
     
     
     emailTextField.returnKeyType = UIReturnKeyNext;
@@ -54,19 +50,38 @@
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
     passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 250, self.view.frame.size.width*0.4, 50);
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor_register"]) {
+        emailTextField.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor_register"];
+    }
+    
     emailTextField.placeholder = @"Enter your email";
     passTextField.placeholder = @"Enter your password";
-    
+        
     UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [logInbutton setTitle:@"Login" forState:UIControlStateNormal];
     logInbutton.frame = CGRectMake(self.view.frame.size.width*0.3, 400, 200, 100);
     [logInbutton addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [registerBtn setTitle:@"Create an account" forState:UIControlStateNormal];
+    registerBtn.frame = CGRectMake(self.view.frame.size.width*0.5, 400, 200, 100);
+    [registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.view addSubview:emailTextField];
     [self.view addSubview:passTextField];
     [self.view addSubview:logInbutton];
+    [self.view addSubview:registerBtn];
+
     
     
+    
+}
+
+-(void)registerAction{
+    NSLog(@"yes papi");
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    [self.navigationController presentViewController:registerVC animated:YES completion:nil];
     
 }
 
@@ -101,7 +116,7 @@
                     [appDelegate setSplitViewController];
                     
                 }else{
-                    NSLog(@"%@",[[responseToken objectForKey:@"message"] stringValue]);
+                    NSLog(@"%@",[responseToken objectForKey:@"message"]);
                 }
                 
                 
@@ -125,9 +140,7 @@
     
 }
 
--(void)createAccount{
-    // set view create account
-}
+
 
 -(BOOL)isValidEmail:(NSString *)checkString
 {

@@ -21,6 +21,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     UISplitViewController *splitViewController;
     UISplitViewController *splitViewControllerDoctor;
+    UINavigationController *welcomeNav;
 
 }
 
@@ -29,6 +30,7 @@
 
 
 -(void)setSplitViewController;
+-(void)logOut;
 
 
 @end
