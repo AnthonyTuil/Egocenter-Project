@@ -34,6 +34,9 @@
     emailTextField.returnKeyType = UIReturnKeyNext;
     passTextField.returnKeyType = UIReturnKeyDone;
     
+    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
+    passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    
     emailTextField.delegate = self;
     passTextField.delegate = self;
     passTextField.secureTextEntry = YES;
@@ -48,7 +51,7 @@
     tokenLabel.text = @"Password";
     
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
-    passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 250, self.view.frame.size.width*0.4, 50);
+    passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 255, self.view.frame.size.width*0.4, 50);
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor_register"]) {
         emailTextField.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor_register"];
@@ -57,14 +60,18 @@
     emailTextField.placeholder = @"Enter your email";
     passTextField.placeholder = @"Enter your password";
         
-    UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [logInbutton setTitle:@"Login" forState:UIControlStateNormal];
-    logInbutton.frame = CGRectMake(self.view.frame.size.width*0.3, 400, 200, 100);
+    UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [logInbutton setImage:[UIImage imageNamed:@"Login_button.png"] forState:UIControlStateNormal];
+    [logInbutton setImage:[UIImage imageNamed:@"Login_button_pressed.png"] forState:UIControlStateHighlighted]      ;
+    logInbutton.frame = CGRectMake(400, 350, 207, 82);
+    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 390);
     [logInbutton addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [registerBtn setTitle:@"Create an account" forState:UIControlStateNormal];
-    registerBtn.frame = CGRectMake(self.view.frame.size.width*0.5, 400, 200, 100);
+    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [registerBtn setImage:[UIImage imageNamed:@"Create_account_button.png"] forState:UIControlStateNormal];
+    [registerBtn setImage:[UIImage imageNamed:@"Create_account_button_pressed.png"] forState:UIControlStateHighlighted];
+    registerBtn.frame = CGRectMake(370, 490, 287, 82);
+    registerBtn.center = CGPointMake(self.view.frame.size.width/2, registerBtn.frame.origin.y);
     [registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     
     

@@ -30,7 +30,7 @@
     
     self.privateSelectedContacts = [[NSMutableArray alloc] init];
     
-    self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(0, 60, 300, 200)];
+    self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(10, 60, 500, 50)];
     [self.contactPickerView setPlaceholderLabelText:@"Enter the patients email here"];
     self.contactPickerView.delegate = self;
     [self.contactPickerView setPromptLabelText:@"To:"];
@@ -146,6 +146,7 @@
 
 -(void)addToDB{
     
+    /*
     AFHTTPRequestOperationManager *managerToken = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor"],
                                  @"token": [NSString stringWithFormat:@"%i",self.recordIDToEdit],
@@ -178,6 +179,10 @@
         NSLog(@"Failure : %@",errorToken);
         // requete non envoyé
     }];
+     
+     */
+    
+  sendToPatient.enabled = YES;
     
 
 }

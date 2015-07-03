@@ -20,15 +20,18 @@
     
     
     
-    UIButton *doctorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doctorButton.frame = CGRectMake(300, 300, 100, 20);
-    [doctorButton setTitle:@"Medecin" forState:UIControlStateNormal];
+    UIButton *doctorButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    doctorButton.frame = CGRectMake(200, 350, 207, 82);
+    [doctorButton setImage:[UIImage imageNamed:@"Doctor_button.png"] forState:UIControlStateNormal];
+    [doctorButton setImage:[UIImage imageNamed:@"Doctor_button_pressed.png"] forState:UIControlStateHighlighted];
     [doctorButton addTarget:self action:@selector(goToDoctor) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UIButton *patientButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    patientButton.frame = CGRectMake(600, 300, 100, 20);
-    [patientButton setTitle:@"Patient" forState:UIControlStateNormal];
+    UIButton *patientButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    patientButton.frame = CGRectMake(630, 350, 207, 82);
+    [patientButton setImage:[UIImage imageNamed:@"Patient_button.png"] forState:UIControlStateNormal];
+    [patientButton setImage:[UIImage imageNamed:@"Patient_button_pressed.png"] forState:UIControlStateHighlighted];
+
     [patientButton addTarget:self action:@selector(goToPatient) forControlEvents:UIControlEventTouchUpInside];
     
     self.view.backgroundColor = [UIColor whiteColor];

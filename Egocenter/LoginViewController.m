@@ -39,6 +39,9 @@
     emailTextField.tag = 1;
     tokenTextField.tag = 2;
     
+    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
+    tokenTextField.borderStyle = UITextBorderStyleRoundedRect;
+    
     UILabel *emailLabel = [[UILabel alloc] init];
     UILabel *tokenLabel = [[UILabel alloc] init];
     
@@ -46,16 +49,18 @@
     tokenLabel.text = @"Token";
     
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
-    tokenTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 250, self.view.frame.size.width*0.4, 50);
+    tokenTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 255, self.view.frame.size.width*0.4, 50);
     
     emailTextField.placeholder = @"Enter your email";
     tokenTextField.placeholder = @"Enter the token";
     
-    UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [logInbutton setTitle:@"Login" forState:UIControlStateNormal];
+    UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [logInbutton setImage:[UIImage imageNamed:@"Login_button.png"] forState:UIControlStateNormal];
+    [logInbutton setImage:[UIImage imageNamed:@"Login_button_pressed.png"] forState:UIControlStateHighlighted];
     logInbutton.frame = CGRectMake(self.view.frame.size.width*0.3, 400, 200, 100);
     [logInbutton addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
-    
+    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 390);
+
     [self.view addSubview:emailTextField];
     [self.view addSubview:tokenTextField];
     [self.view addSubview:logInbutton];

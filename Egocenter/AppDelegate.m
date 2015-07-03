@@ -45,8 +45,8 @@
     WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc] init];
     
     welcomeNav = [[UINavigationController alloc] initWithRootViewController:welcomeViewController];
-    UINavigationController *loginNavD = [[UINavigationController alloc] initWithRootViewController:loginDoctorViewController];
-    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    //UINavigationController *loginNavD = [[UINavigationController alloc] initWithRootViewController:loginDoctorViewController];
+    //UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
     
     NSString *email = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail"];
@@ -66,18 +66,20 @@
                 [self.window setRootViewController:(UIViewController*)splitViewController];
             }else {
                 
-                [self.window setRootViewController:(UIViewController*)loginNav];
+                [self.window setRootViewController:(UIViewController*)welcomeNav];
+                [welcomeNav pushViewController:loginViewController animated:NO];
                 
             }
         }else if([[NSUserDefaults standardUserDefaults] boolForKey:@"isDoctor"]){
             // c'est un docteur
             if (emailDoctor && password) {
                 // deja connecté avec mail et pass
+                
                 [self.window setRootViewController:(UIViewController*)splitViewControllerDoctor];
                 
             }else{
-                
-                [self.window setRootViewController:(UIViewController*)loginNavD];
+                [self.window setRootViewController:(UIViewController*)welcomeNav];
+                [welcomeNav pushViewController:loginDoctorViewController animated:NO];
                 
             }
             

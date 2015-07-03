@@ -45,9 +45,11 @@
     nameLabel.text = @"Name";
     
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
-    passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 250, self.view.frame.size.width*0.4, 50);
-    nameTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 150, self.view.frame.size.width*0.4, 50);
-
+    passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 255, self.view.frame.size.width*0.4, 50);
+    nameTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 310, self.view.frame.size.width*0.4, 50);
+    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
+    passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     
     emailTextField.placeholder = @"Enter your email";
     passTextField.placeholder = @"Choose a password";
@@ -55,12 +57,15 @@
 
     UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [closeBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    closeBtn.titleLabel.font = [UIFont fontWithName:@"GothamBold" size:25];
     closeBtn.frame = CGRectMake(5, 5, 200, 100);
     [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [confirmBtn setTitle:@"Create Account" forState:UIControlStateNormal];
-    confirmBtn.frame = CGRectMake(self.view.frame.size.width*0.3, 400, 200, 100);
+    UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [confirmBtn setImage:[UIImage imageNamed:@"Create_account_button.png"] forState:UIControlStateNormal];
+    confirmBtn.frame = CGRectMake(370, 490, 287, 82);
+    confirmBtn.center = CGPointMake(self.view.frame.size.width/2, confirmBtn.frame.origin.y);
+
     [confirmBtn addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
 
     

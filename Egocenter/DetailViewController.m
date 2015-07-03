@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #define d ((self.view.frame.size.width)*0.6)
+#define DEG2RAD(degrees) (degrees * 0.01745327)
 
 @interface DetailViewController ()
 @property (nonatomic, strong) DBManager *dbManager;
@@ -123,19 +124,23 @@
         NSString *test = [NSString stringWithFormat:@"%@", [[self.objects_relation objectAtIndex:i] objectAtIndex:indexOfname]];
         float x = [[[self.objects_relation objectAtIndex:i] objectAtIndex:2] floatValue];
         float y = [[[self.objects_relation objectAtIndex:i] objectAtIndex:3] floatValue];
+        int id_relation = [[[self.objects_relation objectAtIndex:i] objectAtIndex:0] intValue];
 
         
         Relation *relationToLoad = [[Relation alloc] init];
         relationToLoad.name =test;
         relationToLoad.x = x;
         relationToLoad.y = y;
-        
-        int id_relation = [[[self.objects_relation objectAtIndex:i] objectAtIndex:0] intValue];
+        relationToLoad.relationID = id_relation;
         
         NSString *queryColor = [NSString stringWithFormat:@"SELECT groups.* FROM groups, relation_group WHERE relation_group.groupsID = groups.groupID AND relation_group.relationID = %i",id_relation];
         NSArray *result = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:queryColor]];
         if (result) {
-            relationToLoad.colors = [NSMutableArray arrayWithObjects:[self colorFromHexString:[[result objectAtIndex:0] objectAtIndex:2]], nil];
+            relationToLoad.colors =[[NSMutableArray alloc] init];
+            for (int i=0; i<[result count]; i++) {
+                [relationToLoad.colors insertObject:[self colorFromHexString:[[result objectAtIndex:i] objectAtIndex:2]] atIndex:i];
+            }
+            
         }
         
         // relation.colors add array colors from db 
@@ -147,24 +152,6 @@
     }
    
     
-    
-    /*
-    NSString *query_link = @"select * from link";
-    
-    // Get the results.
-    if (self.objects_link != nil) {
-        self.objects_link = nil;
-    }
-    self.objects_link = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query_link]];
-    
-    NSString *query_group = @"select * from groups";
-    
-    // Get the results.
-    if (self.objects_group != nil) {
-        self.objects_group = nil;
-    }
-    self.objects_group = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query_group]];
-    */
     
     
     
@@ -187,6 +174,7 @@
     
     for (int i =0; i< [arrayViews count]; i++) {
         RelationView *test = [arrayViews objectAtIndex:i];
+        NSLog(@"index : %i // arrayview : %i count : %i",index,test.relation_id,[arrayViews count]);
         if (test.relation_id == index) {
             [test removeFromSuperview];
             [arrayViews removeObjectAtIndex:i];
@@ -246,7 +234,8 @@ int indexMoving;
         viewToMove.center = touchLocation;
         isLinking = NO;
         hasStarted = YES;
-    }
+        
+            }
     }
     
 }
@@ -291,25 +280,13 @@ int indexMoving;
     
     // has long press for linking two relation
     if (isLinking) {
-        // draw link
+       
+        // check the nearest relation
+                
         
         
         
         
-        
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        // end line point
-        [path moveToPoint:CGPointMake(touchLocation.x, touchLocation.y)];
-        // start line point
-        [path addLineToPoint:CGPointMake(viewToMove.center.x, viewToMove.center.y)];
-        
-        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-        shapeLayer.path = [path CGPath];
-        shapeLayer.strokeColor = [[UIColor blueColor] CGColor];
-        shapeLayer.lineWidth = 2.0;
-        shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-        
-        [circleView.layer addSublayer:shapeLayer];
         
     }else if (hasStarted){
         // updatecoordinate
@@ -322,6 +299,8 @@ int indexMoving;
         
         // Execute the query.
         [self.dbManager executeQuery:query];
+        
+        // redraw all link for viewtoMove
         
         
 
@@ -371,8 +350,27 @@ int indexMoving;
                 relationToUpdate = test;
                 test.name.text = nameToUpdate;
                 if ([result count]) {
-                    NSString *color = [[result objectAtIndex:0] objectAtIndex:2];
-                    test.circle.backgroundColor = [self colorFromHexString:color];
+                    if ([result count] == 1) {
+                        test.circle.layer.sublayers = nil;
+                        test.circle.backgroundColor = [self colorFromHexString:[[result objectAtIndex:0] objectAtIndex:2]];
+                        
+                    }
+                    if ([result count] == 2){
+                        test.circle.layer.sublayers = nil;
+                        test.circle.backgroundColor = [self colorFromHexString:[[result objectAtIndex:0] objectAtIndex:2]];
+                        [test.circle.layer addSublayer:[self createPieSliceWithStartAngle:-90.0 andEndAngle:90.0 andColor:[self colorFromHexString:[[result objectAtIndex:1] objectAtIndex:2]]]];
+                        
+                        
+                    }if ([result count] == 3){
+                        test.circle.layer.sublayers = nil;
+                        test.circle.backgroundColor = [self colorFromHexString:[[result objectAtIndex:0] objectAtIndex:2]];
+                        [test.circle.layer addSublayer:[self createPieSliceWithStartAngle:0 andEndAngle:120.0 andColor:[self colorFromHexString:[[result objectAtIndex:1] objectAtIndex:2]]]];
+                       [test.circle.layer addSublayer:[self createPieSliceWithStartAngle:120.0 andEndAngle:240.0 andColor:[self colorFromHexString:[[result objectAtIndex:2] objectAtIndex:2]]]];
+                        
+                    }
+                }else{
+                    test.circle.backgroundColor = [UIColor grayColor];
+                    
                 }
                 [arrayViews replaceObjectAtIndex:i withObject:test];
                 
@@ -392,8 +390,33 @@ int indexMoving;
 -(CGPoint)convertCoordinate:(CGPoint)point{
     return  CGPointMake((point.x-circleView.frame.size.width/2)/(circleView.frame.size.width/2) , (circleView.frame.size.height/2-point.y)/(circleView.frame.size.height/2));
 }
-                                               
-                                               
+
+
+
+-(CAShapeLayer *)createPieSliceWithStartAngle:(float)angleStart andEndAngle:(float)angleEnd andColor:(UIColor*)color {
+    CAShapeLayer *slice = [CAShapeLayer layer];
+    slice.fillColor = color.CGColor;
+    slice.strokeColor = [UIColor clearColor].CGColor;
+    slice.lineWidth = 1.0;
+    
+    CGFloat angle = DEG2RAD(angleStart);
+    CGPoint center = CGPointMake(d/40,d/40);
+    CGFloat radius = d/40;
+    
+    UIBezierPath *piePath = [UIBezierPath bezierPath];
+    [piePath moveToPoint:center];
+    
+    [piePath addLineToPoint:CGPointMake(center.x + radius * cosf(angle), center.y + radius * sinf(angle))];
+    
+    [piePath addArcWithCenter:center radius:radius startAngle:angle endAngle:DEG2RAD(angleEnd) clockwise:YES];
+    
+    //  [piePath addLineToPoint:center];
+    [piePath closePath]; // this will automatically add a straight line to the center
+    slice.path = piePath.CGPath;
+    
+    return slice;
+}
+
                                                
                                                
                                                
