@@ -18,7 +18,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationController.navigationItem.title = @"Doctor";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    [self.navigationItem setTitle:@"Login"];
     [self configureView];
     // Do any additional setup after loading the view.
 }
@@ -34,8 +39,8 @@
     emailTextField.returnKeyType = UIReturnKeyNext;
     passTextField.returnKeyType = UIReturnKeyDone;
     
-    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
-    passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    emailTextField.borderStyle = UITextBorderStyleNone;
+    passTextField.borderStyle = UITextBorderStyleNone;
     
     emailTextField.delegate = self;
     passTextField.delegate = self;
@@ -57,20 +62,24 @@
         emailTextField.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor_register"];
     }
     
-    emailTextField.placeholder = @"Enter your email";
-    passTextField.placeholder = @"Enter your password";
-        
+    emailTextField.placeholder = @"Email adress";
+    emailTextField.textAlignment = NSTextAlignmentCenter;
+    [emailTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    passTextField.placeholder = @"Password";
+    passTextField.textAlignment = NSTextAlignmentCenter;
+    [passTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    
     UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     [logInbutton setImage:[UIImage imageNamed:@"Login_button.png"] forState:UIControlStateNormal];
     [logInbutton setImage:[UIImage imageNamed:@"Login_button_pressed.png"] forState:UIControlStateHighlighted]      ;
-    logInbutton.frame = CGRectMake(400, 350, 207, 82);
-    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 390);
+    logInbutton.frame = CGRectMake(400, 280, 207, 82);
+    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 380);
     [logInbutton addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [registerBtn setImage:[UIImage imageNamed:@"Create_account_button.png"] forState:UIControlStateNormal];
     [registerBtn setImage:[UIImage imageNamed:@"Create_account_button_pressed.png"] forState:UIControlStateHighlighted];
-    registerBtn.frame = CGRectMake(370, 490, 287, 82);
+    registerBtn.frame = CGRectMake(370, 450, 287, 82);
     registerBtn.center = CGPointMake(self.view.frame.size.width/2, registerBtn.frame.origin.y);
     [registerBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
     
@@ -86,7 +95,6 @@
 }
 
 -(void)registerAction{
-    NSLog(@"yes papi");
     RegisterViewController *registerVC = [[RegisterViewController alloc] init];
     [self.navigationController presentViewController:registerVC animated:YES completion:nil];
     
@@ -94,14 +102,15 @@
 
 -(void)logInAction{
     // send request
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.backgroundType = Blur;
     
-    if (emailTextField.text && passTextField.text) {
+    if ([emailTextField.text length]>0 && [passTextField.text length] >0) {
         // les deux champs sont remplis
-        NSLog(@"champs bien remplis");
         if ([self isValidEmail:emailTextField.text]) {
             // l'email est bien de type email
             
-            NSLog(@"email valid");
             AFHTTPRequestOperationManager *managerToken = [AFHTTPRequestOperationManager manager];
             NSDictionary *parameters = @{@"email": emailTextField.text,
                                          @"password": passTextField.text
@@ -113,7 +122,6 @@
                 // get reponse serveur
                 if (![[responseToken objectForKey:@"error"] boolValue]) {
                     
-                    NSLog(@"%@",[responseToken objectForKey:@"message"]);
                     [[NSUserDefaults standardUserDefaults] setObject:emailTextField.text forKey:@"mail_doctor"];
                     [[NSUserDefaults standardUserDefaults] setObject:passTextField.text forKey:@"pass_doctor"];
 
@@ -123,13 +131,12 @@
                     [appDelegate setSplitViewController];
                     
                 }else{
-                    NSLog(@"%@",[responseToken objectForKey:@"message"]);
+                    [alert showWarning:self title:@"Oops" subTitle:[NSString stringWithFormat:@"%@",[responseToken objectForKey:@"message"]] closeButtonTitle:@"Done" duration:0.0f]; // Warning
                 }
                 
                 
             } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-                NSLog(@"Failure : %@",errorToken);
-                // failure
+                [alert showWarning:self title:@"Connection issue" subTitle:@"Couldn't reach servor. Please try again." closeButtonTitle:@"Done" duration:0.0f];
             }]; 
             
             
@@ -137,11 +144,11 @@
             
             
         }else{
-            NSLog(@"Ce n'est pas de la forme email");
+            [alert showWarning:self title:@"Invalid Email" subTitle:@"Please type your email adress again." closeButtonTitle:@"Done" duration:0.0f]; // Warning
         }
         
     }else{
-        NSLog(@"un des deux champs vide");
+        [alert showWarning:self title:@"Empty field" subTitle:@"One or more field is empty. Please type your infos again." closeButtonTitle:@"Done" duration:0.0f]; // Warning
     }
     
     
@@ -171,6 +178,11 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isDoctor"];
             }
     [super viewWillDisappear:animated];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"mail_doctor_register"]) {
+        emailTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"mail_doctor_register"];
+    }
 }
 /*
 #pragma mark - Navigation

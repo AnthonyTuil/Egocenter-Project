@@ -19,4 +19,5 @@
 
 @property (nonatomic, strong) DBManager *dbManager;
 -(void)setTitleForNav:(NSString *)title;
+-(void)selectRelationAtIndex:(int)index;
 @end

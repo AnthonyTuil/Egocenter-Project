@@ -11,6 +11,7 @@
 #import "DBManager.h"
 #import <MessageUI/MessageUI.h>
 #import "THContactPickerView.h"
+#import "AppDelegate.h"
 
 @interface SendSurveyViewController : UIViewController <MFMailComposeViewControllerDelegate>{
     UIButton *sendToPatient;

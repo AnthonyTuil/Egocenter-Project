@@ -24,8 +24,11 @@
     nameTextField = [[UITextField alloc] init];
     
     emailTextField.returnKeyType = UIReturnKeyNext;
-    passTextField.returnKeyType = UIReturnKeyDone;
+    emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    passTextField.returnKeyType = UIReturnKeyNext;
     nameTextField.returnKeyType = UIReturnKeyDone;
+    
+    emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     emailTextField.delegate = self;
     passTextField.delegate = self;
@@ -47,23 +50,36 @@
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
     passTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 255, self.view.frame.size.width*0.4, 50);
     nameTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 310, self.view.frame.size.width*0.4, 50);
-    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
-    passTextField.borderStyle = UITextBorderStyleRoundedRect;
-    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    emailTextField.borderStyle = UITextBorderStyleNone;
+    passTextField.borderStyle = UITextBorderStyleNone;
+    nameTextField.borderStyle = UITextBorderStyleNone;
+    emailTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    passTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    nameTextField.autocorrectionType =UITextAutocorrectionTypeNo;
     
-    emailTextField.placeholder = @"Enter your email";
+    emailTextField.placeholder = @"Email adress";
     passTextField.placeholder = @"Choose a password";
     nameTextField.placeholder = @"Enter your name";
+    
+    emailTextField.textAlignment = NSTextAlignmentCenter;
+    [emailTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    passTextField.textAlignment = NSTextAlignmentCenter;
+    [passTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    nameTextField.textAlignment = NSTextAlignmentCenter;
+    [nameTextField setFont:[UIFont boldSystemFontOfSize:20]];
 
     UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [closeBtn setTitle:@"Cancel" forState:UIControlStateNormal];
-    closeBtn.titleLabel.font = [UIFont fontWithName:@"GothamBold" size:25];
-    closeBtn.frame = CGRectMake(5, 5, 200, 100);
+    closeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    closeBtn.titleLabel.textColor = [UIColor colorWithRed:217.0/255.0 green:84.0/255.0 blue:58.0/255.0 alpha:1.0];
+    closeBtn.frame = CGRectMake(0, 5, 200, 100);
     [closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [confirmBtn setImage:[UIImage imageNamed:@"Create_account_button.png"] forState:UIControlStateNormal];
-    confirmBtn.frame = CGRectMake(370, 490, 287, 82);
+    confirmBtn.frame = CGRectMake(370, 450, 287, 82);
     confirmBtn.center = CGPointMake(self.view.frame.size.width/2, confirmBtn.frame.origin.y);
 
     [confirmBtn addTarget:self action:@selector(confirmAction) forControlEvents:UIControlEventTouchUpInside];
@@ -78,7 +94,11 @@
 }
 
 -(void)confirmAction{
-    if (emailTextField.text && nameTextField.text && passTextField.text) {
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.backgroundType = Blur;
+
+    if ([emailTextField.text length] >0 && [nameTextField.text length] >0 && [passTextField.text length] >0) {
         if (passTextField.text.length >5) {
             if ([self isValidEmail:emailTextField.text]) {
                 AFHTTPRequestOperationManager *managerToken = [AFHTTPRequestOperationManager manager];
@@ -97,26 +117,34 @@
                         [[NSUserDefaults standardUserDefaults] setObject:emailTextField.text forKey:@"mail_doctor_register"];
                         
                         // app delegate present splitviewcontroller
-                        [self closeAction];
+                        [alert showSuccess:self title:@"Account created" subTitle:@"your account has been successfully created. Please login woth your password" closeButtonTitle:nil duration:0.0f];
+                        [alert addButton:@"Done" actionBlock:^(void) {
+                              [self closeAction];
+                        }];
+                      
                         
                         
                     }else{
-                        NSLog(@"%@",[[responseToken objectForKey:@"message"] stringValue]);
+                        NSString *alertString = [NSString stringWithFormat:@"%@",[responseToken objectForKey:@"message"]];
+                        if ([alertString isEqualToString:@"Sorry, this email is already existing"]) {
+                            alertString = [NSString stringWithFormat:@"%@, try to connect with your account",alertString];
+                        }
+                        [alert showWarning:self title:@"Oops" subTitle:alertString closeButtonTitle:@"Done" duration:0.0f];
                     }
                     
                     
                 } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-                    NSLog(@"Failure : %@",errorToken);
-                    // failure
+                    [alert showWarning:self title:@"Connection issue" subTitle:@"Couldn't reach servor. Please try again." closeButtonTitle:@"Done" duration:0.0f];
                 }];
             }else{
-                NSLog(@"Email not valid");
+              [alert showWarning:self title:@"Invalid Email" subTitle:@"Please type your email adress again." closeButtonTitle:@"Done" duration:0.0f];
+            
             }
         }else{
-            NSLog(@"pass not long enought");
+            [alert showWarning:self title:@"Password too short" subTitle:@"Please choose a longer password." closeButtonTitle:@"Done" duration:0.0f]; 
         }
     }else{
-        NSLog(@"one field empty");
+  [alert showWarning:self title:@"Empty field" subTitle:@"One or more field is empty. Please type your infos again." closeButtonTitle:@"Done" duration:0.0f];
     }
     
 }
@@ -139,7 +167,21 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == emailTextField) {
+        [passTextField becomeFirstResponder];
+    }
+    else if (textField == passTextField) {
+        [nameTextField becomeFirstResponder];
+    }
+    else if (textField == nameTextField) {
+        [nameTextField resignFirstResponder];
+        
+        
+    }
+    return true;
+}
 /*
 #pragma mark - Navigation
 

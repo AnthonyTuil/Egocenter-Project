@@ -64,6 +64,7 @@
     // Create a contact view to determine the height of a line
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     self.scrollView.scrollsToTop = NO;
+    //[self scrollToBottomWithAnimation:NO];
     self.scrollView.delegate = self;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self addSubview:self.scrollView];
@@ -273,6 +274,8 @@
 
 - (void)scrollToBottomWithAnimation:(BOOL)animated {
     if (animated){
+        NSLog(@"scroll Here");
+
         CGSize size = self.scrollView.contentSize;
         CGRect frame = CGRectMake(0, size.height - self.scrollView.frame.size.height, size.width, self.scrollView.frame.size.height);
         
@@ -344,6 +347,7 @@
 }
 
 - (CGFloat)firstLineXOffset {
+    NSLog(@"A");
     if (self.promptLabel.text == nil){
         return kHorizontalSidePadding;
     } else {
@@ -354,7 +358,8 @@
 - (void)layoutContactViews {
 	_frameOfLastView = CGRectNull;
 	_lineCount = 0;
-	
+    NSLog(@"B");
+
 	// Loop through contacts and position/add them to the view
 	for (id contactKey in self.contactKeys){
 		THContactView *contactView = (THContactView *)[self.contacts objectForKey:contactKey];
@@ -410,7 +415,7 @@
 			textViewFrame.size.width = self.bounds.size.width - textViewFrame.origin.x;
 		}
 	}
-	
+
 	textViewFrame.origin.y = _lineCount * self.lineHeight + kVerticalPadding + self.verticalPadding;
 	self.textField.frame = textViewFrame;
 	
@@ -444,6 +449,8 @@
 }
 
 - (void)layoutScrollView {
+    NSLog(@"C");
+
 	// Adjust scroll view content size
 	CGRect frame = self.bounds;
 	CGFloat maxFrameHeight = self.maxNumberOfLines * self.lineHeight + 2 * self.verticalPadding; // limit frame to two lines of content
@@ -549,6 +556,8 @@
     if (self.limitToOne && self.contactKeys.count == 1){
         return;
     }
+    
+
     [self scrollToBottomWithAnimation:YES];
     
     // Show textField

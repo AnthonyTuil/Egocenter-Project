@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "AppDelegate.h"
 
 @interface RegisterViewController : UIViewController<UITextFieldDelegate>{
     UITextField *emailTextField;

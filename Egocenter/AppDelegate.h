@@ -16,6 +16,7 @@
 #import "LoginDoctorViewController.h"
 #import "MasterDoctorTableViewController.h"
 #import "DetailDoctorViewController.h"
+#import "SCLAlertView.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{

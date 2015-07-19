@@ -18,7 +18,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationController.navigationItem.title = @"Patient";
+  [self.navigationItem setTitle:@"Login"];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
 
     [self configureView];
     
@@ -39,8 +43,14 @@
     emailTextField.tag = 1;
     tokenTextField.tag = 2;
     
-    emailTextField.borderStyle = UITextBorderStyleRoundedRect;
-    tokenTextField.borderStyle = UITextBorderStyleRoundedRect;
+    emailTextField.borderStyle = UITextBorderStyleNone;
+    tokenTextField.borderStyle = UITextBorderStyleNone;
+    
+    emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    emailTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    tokenTextField.keyboardType = UIKeyboardTypeNumberPad;
     
     UILabel *emailLabel = [[UILabel alloc] init];
     UILabel *tokenLabel = [[UILabel alloc] init];
@@ -51,15 +61,21 @@
     emailTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 200, self.view.frame.size.width*0.4, 50);
     tokenTextField.frame = CGRectMake(self.view.frame.size.width*0.3, 255, self.view.frame.size.width*0.4, 50);
     
-    emailTextField.placeholder = @"Enter your email";
-    tokenTextField.placeholder = @"Enter the token";
+    emailTextField.textAlignment = NSTextAlignmentCenter;
+    [emailTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    tokenTextField.textAlignment = NSTextAlignmentCenter;
+    [tokenTextField setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    emailTextField.placeholder = @"Email adress";
+    tokenTextField.placeholder = @"Token";
     
     UIButton *logInbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     [logInbutton setImage:[UIImage imageNamed:@"Login_button.png"] forState:UIControlStateNormal];
     [logInbutton setImage:[UIImage imageNamed:@"Login_button_pressed.png"] forState:UIControlStateHighlighted];
     logInbutton.frame = CGRectMake(self.view.frame.size.width*0.3, 400, 200, 100);
     [logInbutton addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
-    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 390);
+    logInbutton.center = CGPointMake(self.view.frame.size.width/2, 380);
 
     [self.view addSubview:emailTextField];
     [self.view addSubview:tokenTextField];
@@ -73,8 +89,11 @@
 
 -(void)logInAction{
     // send request
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.backgroundType = Blur;
     
-     if (emailTextField.text && tokenTextField.text) {
+     if ([emailTextField.text length] >0 && [tokenTextField.text length] >0) {
          // les deux champs sont remplis
          NSLog(@"champs bien remplis");
          if ([self isValidEmail:emailTextField.text]) {
@@ -127,13 +146,12 @@
             [appDelegate setSplitViewController];
             
              }else{
-                 NSLog(@"%@",[responseToken objectForKey:@"message"]);
+                 [alert showWarning:self title:@"Oops" subTitle:[NSString stringWithFormat:@"%@",[responseToken objectForKey:@"message"]] closeButtonTitle:@"Done" duration:0.0f]; // Warning
              }
 
     
         } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-            NSLog(@"Failure : %@",errorToken);
-            // failure
+         [alert showWarning:self title:@"Connection issue" subTitle:@"Couldn't reach servor. Please try again." closeButtonTitle:@"Done" duration:0.0f];
             }]; 
     
     
@@ -141,11 +159,11 @@
 
         
          }else{
-             NSLog(@"Ce n'est pas de la forme email");
+             [alert showWarning:self title:@"Invalid Email" subTitle:@"Please type your email adress again." closeButtonTitle:@"Done" duration:0.0f]; // Warning
          }
     
      }else{
-         NSLog(@"un des deux champs vide");
+         [alert showWarning:self title:@"Empty field" subTitle:@"One or more field is empty. Please type your infos again." closeButtonTitle:@"Done" duration:0.0f]; // Warning
      }
     
     

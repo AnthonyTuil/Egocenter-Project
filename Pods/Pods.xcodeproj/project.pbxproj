@@ -7,199 +7,324 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D26A76FB76D7E2EB6A13BAE /* Pods-Egocenter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6819869062ED1BAAB0968B58 /* Pods-Egocenter-dummy.m */; };
-		209F55EF2AED504E9C431C90 /* THContactPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5BC35C6951D84B7AB221CE /* THContactPickerView.m */; };
-		62160C898F99A3DA2D0253CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C225EA80E1D04460A02526E9 /* Foundation.framework */; };
-		661188D2B8B44BD80ADABBC4 /* THContactTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BA103749A3733661AC4E1 /* THContactTextField.m */; };
-		7319BDB72AECD4E3C2DBFB5E /* THContactViewStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = A3200CBB4660262CD1C40ADE /* THContactViewStyle.h */; };
-		9241235FBA71B12F020BA8F5 /* THContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A17FECAB465D241F8FAC87 /* THContactView.m */; };
-		96A1DDCBCBD41942D24FCD0B /* THContactTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747D3DD97D775718B41725C /* THContactTextField.h */; };
-		9837373817EC263BA020F79B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C225EA80E1D04460A02526E9 /* Foundation.framework */; };
-		B3BAF4DB82C58FA07EB60455 /* Pods-Egocenter-THContactPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA1A5BFA64698F62F8734 /* Pods-Egocenter-THContactPicker-dummy.m */; };
-		B706BC3CCB8F9F7709C5B8B5 /* THContactPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E236FD0AA59FC1F398C881F /* THContactPickerView.h */; };
-		C63409C9E3A2034D3D4B518A /* THContactView.h in Headers */ = {isa = PBXBuildFile; fileRef = F8E162FB9568853EACE7247C /* THContactView.h */; };
-		E9533027700348532A9F11BC /* THContactViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF334CD5E03E3E1B8114AB /* THContactViewStyle.m */; };
-		FD2C0CFF86FD96FB3ED7E90F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4692CDF52FDB5876BD03748 /* CoreGraphics.framework */; };
+		0CE113FE699ACB906255F5DA /* SCLAlertViewStyleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E8BFFAAD2B21CF1F6BACB5D5 /* SCLAlertViewStyleKit.h */; };
+		153B29B8F12692EF7A3E9D8B /* THContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8938E528821F861EA7634DF /* THContactView.m */; };
+		15F8E570D137AD84BBEB44F8 /* THContactViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 669B9944CBEB1D58358F20DB /* THContactViewStyle.m */; };
+		1607502D7269530FE5F7B5FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746BD7BD7A5BA7A6D6AE5691 /* Foundation.framework */; };
+		1F796DDAEFD33FB567868153 /* THContactTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23235C0B6E9EC5BB96E36 /* THContactTextField.m */; };
+		22FA2D17F41233E6985345C1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C885446736304C1028ABB7B /* SCLAlertViewStyleKit.m */; };
+		278C2D2A6BDF272E67166F57 /* SCLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2B7134D2B287CC80BCC187 /* SCLMacros.h */; };
+		3F8936ACEE87B0207DADEE28 /* SCLAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B63529FA8C7F1758DD5F427 /* SCLAlertView.h */; };
+		4C4BE236D192946E6AA38DCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746BD7BD7A5BA7A6D6AE5691 /* Foundation.framework */; };
+		53D4582F0F043F01724CD76E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746BD7BD7A5BA7A6D6AE5691 /* Foundation.framework */; };
+		7319B30F7DFA19ADB5C91873 /* THContactTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = D1249F18D6210F17ED4B44BC /* THContactTextField.h */; };
+		9011155E21F43A904B830746 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869B6F39A7D849B175B27C02 /* SCLAlertView.m */; };
+		99B5D6A11EE97102CD9FDE00 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E35638992E16D69BACC1E452 /* UIImage+ImageEffects.m */; };
+		A3DD1583CF5C16CD43643954 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF294C331B3EE290B0D533F /* UIImage+ImageEffects.h */; };
+		B2B3223A4266440371242C46 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D73E2C0F93775815AE2815 /* CoreGraphics.framework */; };
+		B3E701FC8CB7296784887B78 /* THContactView.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BF3CF6823D8F92E84D3B2D /* THContactView.h */; };
+		B96D01A6E4C7C5FC76307EC0 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D23446E3224A183F0F903F4 /* SCLButton.m */; };
+		C0B95B99C16E73952B5768BE /* Pods-Egocenter-THContactPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B66636FC17370A3F33C4C10B /* Pods-Egocenter-THContactPicker-dummy.m */; };
+		C498A5BB4DA20FCD3D321E6D /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 44069F99DEB4815F65202D58 /* SCLAlertViewResponder.m */; };
+		D03060933C71A784D060B602 /* THContactPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A1F9553C36DFB7891C63C2 /* THContactPickerView.h */; };
+		D4B29AA870D6A827F0A7E05F /* SCLAlertViewResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 299AC15699E27FA19E0DE4E7 /* SCLAlertViewResponder.h */; };
+		DBE7D7840A59B1C90C1A220D /* SCLButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 198A51311F9078C768F85E88 /* SCLButton.h */; };
+		E189EB2FB0F6AB25D9CCD28D /* Pods-Egocenter-SCLAlertView-Objective-C-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D17F51D86258F9093967B692 /* Pods-Egocenter-SCLAlertView-Objective-C-dummy.m */; };
+		EA23CE51C88518AD7A226E4B /* THContactViewStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = CD898F378266AA88D7E14676 /* THContactViewStyle.h */; };
+		EFED5C3AD3D937D3C5123199 /* Pods-Egocenter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA502101B92A1C3557007CA /* Pods-Egocenter-dummy.m */; };
+		FC39121772E21F397A4373C1 /* THContactPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75291F8EB2694A346FE0186 /* THContactPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C5E55B788F9A53A23B638813 /* PBXContainerItemProxy */ = {
+		00CE37B9699B1FCFDD17A75D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1BB05907E924B6924373FD3 /* Project object */;
+			containerPortal = 4F73AA02C2E7159CE13CB48A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3255DF846E898894839B92DA;
+			remoteGlobalIDString = 294A605C1108CFACECE960E7;
+			remoteInfo = "Pods-Egocenter-SCLAlertView-Objective-C";
+		};
+		795DE0E2E7A2D0707B1C439F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F73AA02C2E7159CE13CB48A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E8FB94B27636D7E15BE04A3;
 			remoteInfo = "Pods-Egocenter-THContactPicker";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16FF334CD5E03E3E1B8114AB /* THContactViewStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactViewStyle.m; path = Classes/THContactViewStyle.m; sourceTree = "<group>"; };
-		1D226B692ED63E7F2D9B6881 /* Pods-Egocenter-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Egocenter-environment.h"; sourceTree = "<group>"; };
-		25FEC33D42B4B3D9A5F2568A /* Pods-Egocenter-THContactPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Egocenter-THContactPicker-prefix.pch"; sourceTree = "<group>"; };
-		3D5ADA1A2DCD82422270732B /* libPods-Egocenter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Egocenter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42A17FECAB465D241F8FAC87 /* THContactView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactView.m; path = Classes/THContactView.m; sourceTree = "<group>"; };
-		5D7DC3AE9FA602F56E79C040 /* libPods-Egocenter-THContactPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Egocenter-THContactPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6747D3DD97D775718B41725C /* THContactTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactTextField.h; path = Classes/THContactTextField.h; sourceTree = "<group>"; };
-		6819869062ED1BAAB0968B58 /* Pods-Egocenter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Egocenter-dummy.m"; sourceTree = "<group>"; };
-		6B9ADEC878D77C63EF901261 /* Pods-Egocenter-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Egocenter-acknowledgements.markdown"; sourceTree = "<group>"; };
-		72CFD394B64A2185038C906C /* Pods-Egocenter-THContactPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-THContactPicker-Private.xcconfig"; sourceTree = "<group>"; };
-		8236C0D45F0DB61BF18E6AE9 /* Pods-Egocenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter.release.xcconfig"; sourceTree = "<group>"; };
-		86E46C2B63DD3E0EA98267E0 /* Pods-Egocenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter.debug.xcconfig"; sourceTree = "<group>"; };
-		8E236FD0AA59FC1F398C881F /* THContactPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactPickerView.h; path = Classes/THContactPickerView.h; sourceTree = "<group>"; };
-		982CB02E8EDFCD8D6E1D9042 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A3200CBB4660262CD1C40ADE /* THContactViewStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactViewStyle.h; path = Classes/THContactViewStyle.h; sourceTree = "<group>"; };
-		A9D755132D7E95EBBAD9CEFC /* Pods-Egocenter-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Egocenter-resources.sh"; sourceTree = "<group>"; };
-		B1AA9B807F388DA9353FEB11 /* Pods-Egocenter-THContactPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-THContactPicker.xcconfig"; sourceTree = "<group>"; };
-		BF2BA103749A3733661AC4E1 /* THContactTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactTextField.m; path = Classes/THContactTextField.m; sourceTree = "<group>"; };
-		C225EA80E1D04460A02526E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D18D8410C926CB3D261E6096 /* Pods-Egocenter-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Egocenter-acknowledgements.plist"; sourceTree = "<group>"; };
-		DF5BC35C6951D84B7AB221CE /* THContactPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactPickerView.m; path = Classes/THContactPickerView.m; sourceTree = "<group>"; };
-		E82DA1A5BFA64698F62F8734 /* Pods-Egocenter-THContactPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Egocenter-THContactPicker-dummy.m"; sourceTree = "<group>"; };
-		F4692CDF52FDB5876BD03748 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		F8E162FB9568853EACE7247C /* THContactView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactView.h; path = Classes/THContactView.h; sourceTree = "<group>"; };
+		04363C0CF1FE6F829ED27574 /* Pods-Egocenter-THContactPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-THContactPicker-Private.xcconfig"; sourceTree = "<group>"; };
+		08A87E29154C14C88B6A0F80 /* Pods-Egocenter-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Egocenter-acknowledgements.markdown"; sourceTree = "<group>"; };
+		08AB2BDB1FEBF270B1770E01 /* libPods-Egocenter-SCLAlertView-Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Egocenter-SCLAlertView-Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D23446E3224A183F0F903F4 /* SCLButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLButton.m; path = SCLAlertView/SCLButton.m; sourceTree = "<group>"; };
+		0D78DD03DEFE6C978869AA07 /* Pods-Egocenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter.debug.xcconfig"; sourceTree = "<group>"; };
+		0DB64EB9AEECE66AD1E73C99 /* Pods-Egocenter-THContactPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-THContactPicker.xcconfig"; sourceTree = "<group>"; };
+		198A51311F9078C768F85E88 /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
+		1CA502101B92A1C3557007CA /* Pods-Egocenter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Egocenter-dummy.m"; sourceTree = "<group>"; };
+		299AC15699E27FA19E0DE4E7 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewResponder.h; path = SCLAlertView/SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		2CF294C331B3EE290B0D533F /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		3B63529FA8C7F1758DD5F427 /* SCLAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertView.h; path = SCLAlertView/SCLAlertView.h; sourceTree = "<group>"; };
+		3FB23235C0B6E9EC5BB96E36 /* THContactTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactTextField.m; path = Classes/THContactTextField.m; sourceTree = "<group>"; };
+		44069F99DEB4815F65202D58 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewResponder.m; path = SCLAlertView/SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		4667BC78889082E2678AB01A /* Pods-Egocenter-SCLAlertView-Objective-C-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Egocenter-SCLAlertView-Objective-C-prefix.pch"; sourceTree = "<group>"; };
+		628C6B2C11FE825D02940474 /* Pods-Egocenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter.release.xcconfig"; sourceTree = "<group>"; };
+		63BF3CF6823D8F92E84D3B2D /* THContactView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactView.h; path = Classes/THContactView.h; sourceTree = "<group>"; };
+		669B9944CBEB1D58358F20DB /* THContactViewStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactViewStyle.m; path = Classes/THContactViewStyle.m; sourceTree = "<group>"; };
+		746BD7BD7A5BA7A6D6AE5691 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7725A0BE3FA06C9DEFDE4772 /* Pods-Egocenter-SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
+		78EFE51D389D61E60B6137A9 /* libPods-Egocenter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Egocenter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A968B54599928E62E5A4567 /* libPods-Egocenter-THContactPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Egocenter-THContactPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		869B6F39A7D849B175B27C02 /* SCLAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertView.m; path = SCLAlertView/SCLAlertView.m; sourceTree = "<group>"; };
+		90948B18F400704406525C44 /* Pods-Egocenter-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Egocenter-environment.h"; sourceTree = "<group>"; };
+		919237476F120F40A2107A83 /* Pods-Egocenter-SCLAlertView-Objective-C-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Egocenter-SCLAlertView-Objective-C-Private.xcconfig"; sourceTree = "<group>"; };
+		93A77CC826763DC6A2C62178 /* Pods-Egocenter-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Egocenter-acknowledgements.plist"; sourceTree = "<group>"; };
+		9C885446736304C1028ABB7B /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		A7A1F9553C36DFB7891C63C2 /* THContactPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactPickerView.h; path = Classes/THContactPickerView.h; sourceTree = "<group>"; };
+		B66636FC17370A3F33C4C10B /* Pods-Egocenter-THContactPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Egocenter-THContactPicker-dummy.m"; sourceTree = "<group>"; };
+		B8938E528821F861EA7634DF /* THContactView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactView.m; path = Classes/THContactView.m; sourceTree = "<group>"; };
+		CD898F378266AA88D7E14676 /* THContactViewStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactViewStyle.h; path = Classes/THContactViewStyle.h; sourceTree = "<group>"; };
+		D1249F18D6210F17ED4B44BC /* THContactTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = THContactTextField.h; path = Classes/THContactTextField.h; sourceTree = "<group>"; };
+		D17F51D86258F9093967B692 /* Pods-Egocenter-SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Egocenter-SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
+		D234470899BB799258A2D46C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E35638992E16D69BACC1E452 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "SCLAlertView/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		E8BFFAAD2B21CF1F6BACB5D5 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewStyleKit.h; path = SCLAlertView/SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		E9FAB8E7900E37798DF43594 /* Pods-Egocenter-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Egocenter-resources.sh"; sourceTree = "<group>"; };
+		F3D73E2C0F93775815AE2815 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		F6B4402907BE47A99A7D58FA /* Pods-Egocenter-THContactPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Egocenter-THContactPicker-prefix.pch"; sourceTree = "<group>"; };
+		F75291F8EB2694A346FE0186 /* THContactPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = THContactPickerView.m; path = Classes/THContactPickerView.m; sourceTree = "<group>"; };
+		FF2B7134D2B287CC80BCC187 /* SCLMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLMacros.h; path = SCLAlertView/SCLMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		833E2A85B35125CBD331592C /* Frameworks */ = {
+		55EF2CCDEF16FF50073BFC32 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2C0CFF86FD96FB3ED7E90F /* CoreGraphics.framework in Frameworks */,
-				9837373817EC263BA020F79B /* Foundation.framework in Frameworks */,
+				B2B3223A4266440371242C46 /* CoreGraphics.framework in Frameworks */,
+				53D4582F0F043F01724CD76E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A0698BC1D4BB53907CA347F8 /* Frameworks */ = {
+		5EAE1F7DB02464F9B12FF384 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62160C898F99A3DA2D0253CC /* Foundation.framework in Frameworks */,
+				1607502D7269530FE5F7B5FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FB3B91706C28A0EA109C37F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C4BE236D192946E6AA38DCC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15DC7E675868A59C1052F765 = {
+		0F979755FF8FE6DB305E0477 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				982CB02E8EDFCD8D6E1D9042 /* Podfile */,
-				C176CD6CAC0FCF3EC31B4BF2 /* Frameworks */,
-				8E726C5094106B4DA2C9619D /* Pods */,
-				8E5976260C6FDF2A824DC657 /* Products */,
-				43A3A8CDE531BEC4C6D11C4F /* Targets Support Files */,
+				5D3A95E6F1306833D5134226 /* iOS */,
 			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		43A3A8CDE531BEC4C6D11C4F /* Targets Support Files */ = {
+		1C8B5AB395CDF0B527E6B758 /* THContactPicker */ = {
 			isa = PBXGroup;
 			children = (
-				520D904979A5EE82E4AE6E29 /* Pods-Egocenter */,
+				A7A1F9553C36DFB7891C63C2 /* THContactPickerView.h */,
+				F75291F8EB2694A346FE0186 /* THContactPickerView.m */,
+				D1249F18D6210F17ED4B44BC /* THContactTextField.h */,
+				3FB23235C0B6E9EC5BB96E36 /* THContactTextField.m */,
+				63BF3CF6823D8F92E84D3B2D /* THContactView.h */,
+				B8938E528821F861EA7634DF /* THContactView.m */,
+				CD898F378266AA88D7E14676 /* THContactViewStyle.h */,
+				669B9944CBEB1D58358F20DB /* THContactViewStyle.m */,
+				47A3D929374EA2BA6F9C3FE0 /* Support Files */,
 			);
-			name = "Targets Support Files";
+			path = THContactPicker;
 			sourceTree = "<group>";
 		};
-		520D904979A5EE82E4AE6E29 /* Pods-Egocenter */ = {
+		260ED9B39A53F32E7955B513 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6B9ADEC878D77C63EF901261 /* Pods-Egocenter-acknowledgements.markdown */,
-				D18D8410C926CB3D261E6096 /* Pods-Egocenter-acknowledgements.plist */,
-				6819869062ED1BAAB0968B58 /* Pods-Egocenter-dummy.m */,
-				1D226B692ED63E7F2D9B6881 /* Pods-Egocenter-environment.h */,
-				A9D755132D7E95EBBAD9CEFC /* Pods-Egocenter-resources.sh */,
-				86E46C2B63DD3E0EA98267E0 /* Pods-Egocenter.debug.xcconfig */,
-				8236C0D45F0DB61BF18E6AE9 /* Pods-Egocenter.release.xcconfig */,
+				9DD4E7B64C8EE18556EF3D8A /* SCLAlertView-Objective-C */,
+				1C8B5AB395CDF0B527E6B758 /* THContactPicker */,
 			);
-			name = "Pods-Egocenter";
-			path = "Target Support Files/Pods-Egocenter";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		67DF5C2DFC3F81074150C1BE /* iOS */ = {
+		47A3D929374EA2BA6F9C3FE0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F4692CDF52FDB5876BD03748 /* CoreGraphics.framework */,
-				C225EA80E1D04460A02526E9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		7C805AD4CCC56449FB47BFEA /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B1AA9B807F388DA9353FEB11 /* Pods-Egocenter-THContactPicker.xcconfig */,
-				72CFD394B64A2185038C906C /* Pods-Egocenter-THContactPicker-Private.xcconfig */,
-				E82DA1A5BFA64698F62F8734 /* Pods-Egocenter-THContactPicker-dummy.m */,
-				25FEC33D42B4B3D9A5F2568A /* Pods-Egocenter-THContactPicker-prefix.pch */,
+				0DB64EB9AEECE66AD1E73C99 /* Pods-Egocenter-THContactPicker.xcconfig */,
+				04363C0CF1FE6F829ED27574 /* Pods-Egocenter-THContactPicker-Private.xcconfig */,
+				B66636FC17370A3F33C4C10B /* Pods-Egocenter-THContactPicker-dummy.m */,
+				F6B4402907BE47A99A7D58FA /* Pods-Egocenter-THContactPicker-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Egocenter-THContactPicker";
 			sourceTree = "<group>";
 		};
-		840B571E2F09471F49CC87DF /* THContactPicker */ = {
+		5D3A95E6F1306833D5134226 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8E236FD0AA59FC1F398C881F /* THContactPickerView.h */,
-				DF5BC35C6951D84B7AB221CE /* THContactPickerView.m */,
-				6747D3DD97D775718B41725C /* THContactTextField.h */,
-				BF2BA103749A3733661AC4E1 /* THContactTextField.m */,
-				F8E162FB9568853EACE7247C /* THContactView.h */,
-				42A17FECAB465D241F8FAC87 /* THContactView.m */,
-				A3200CBB4660262CD1C40ADE /* THContactViewStyle.h */,
-				16FF334CD5E03E3E1B8114AB /* THContactViewStyle.m */,
-				7C805AD4CCC56449FB47BFEA /* Support Files */,
+				F3D73E2C0F93775815AE2815 /* CoreGraphics.framework */,
+				746BD7BD7A5BA7A6D6AE5691 /* Foundation.framework */,
 			);
-			path = THContactPicker;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		8E5976260C6FDF2A824DC657 /* Products */ = {
+		6E8E070208AEA83758E0CC94 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D5ADA1A2DCD82422270732B /* libPods-Egocenter.a */,
-				5D7DC3AE9FA602F56E79C040 /* libPods-Egocenter-THContactPicker.a */,
+				7725A0BE3FA06C9DEFDE4772 /* Pods-Egocenter-SCLAlertView-Objective-C.xcconfig */,
+				919237476F120F40A2107A83 /* Pods-Egocenter-SCLAlertView-Objective-C-Private.xcconfig */,
+				D17F51D86258F9093967B692 /* Pods-Egocenter-SCLAlertView-Objective-C-dummy.m */,
+				4667BC78889082E2678AB01A /* Pods-Egocenter-SCLAlertView-Objective-C-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Egocenter-SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		882AB23ED267849A74DDAACD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78EFE51D389D61E60B6137A9 /* libPods-Egocenter.a */,
+				08AB2BDB1FEBF270B1770E01 /* libPods-Egocenter-SCLAlertView-Objective-C.a */,
+				7A968B54599928E62E5A4567 /* libPods-Egocenter-THContactPicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8E726C5094106B4DA2C9619D /* Pods */ = {
+		9DD4E7B64C8EE18556EF3D8A /* SCLAlertView-Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				840B571E2F09471F49CC87DF /* THContactPicker */,
+				3B63529FA8C7F1758DD5F427 /* SCLAlertView.h */,
+				869B6F39A7D849B175B27C02 /* SCLAlertView.m */,
+				299AC15699E27FA19E0DE4E7 /* SCLAlertViewResponder.h */,
+				44069F99DEB4815F65202D58 /* SCLAlertViewResponder.m */,
+				E8BFFAAD2B21CF1F6BACB5D5 /* SCLAlertViewStyleKit.h */,
+				9C885446736304C1028ABB7B /* SCLAlertViewStyleKit.m */,
+				198A51311F9078C768F85E88 /* SCLButton.h */,
+				0D23446E3224A183F0F903F4 /* SCLButton.m */,
+				FF2B7134D2B287CC80BCC187 /* SCLMacros.h */,
+				2CF294C331B3EE290B0D533F /* UIImage+ImageEffects.h */,
+				E35638992E16D69BACC1E452 /* UIImage+ImageEffects.m */,
+				6E8E070208AEA83758E0CC94 /* Support Files */,
 			);
-			name = Pods;
+			path = "SCLAlertView-Objective-C";
 			sourceTree = "<group>";
 		};
-		C176CD6CAC0FCF3EC31B4BF2 /* Frameworks */ = {
+		BF5AA5352A8867B530D87AFF = {
 			isa = PBXGroup;
 			children = (
-				67DF5C2DFC3F81074150C1BE /* iOS */,
+				D234470899BB799258A2D46C /* Podfile */,
+				0F979755FF8FE6DB305E0477 /* Frameworks */,
+				260ED9B39A53F32E7955B513 /* Pods */,
+				882AB23ED267849A74DDAACD /* Products */,
+				E172BC830248A0FA64FD0DA3 /* Targets Support Files */,
 			);
-			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E172BC830248A0FA64FD0DA3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBDD686177D6257BB463D165 /* Pods-Egocenter */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FBDD686177D6257BB463D165 /* Pods-Egocenter */ = {
+			isa = PBXGroup;
+			children = (
+				08A87E29154C14C88B6A0F80 /* Pods-Egocenter-acknowledgements.markdown */,
+				93A77CC826763DC6A2C62178 /* Pods-Egocenter-acknowledgements.plist */,
+				1CA502101B92A1C3557007CA /* Pods-Egocenter-dummy.m */,
+				90948B18F400704406525C44 /* Pods-Egocenter-environment.h */,
+				E9FAB8E7900E37798DF43594 /* Pods-Egocenter-resources.sh */,
+				0D78DD03DEFE6C978869AA07 /* Pods-Egocenter.debug.xcconfig */,
+				628C6B2C11FE825D02940474 /* Pods-Egocenter.release.xcconfig */,
+			);
+			name = "Pods-Egocenter";
+			path = "Target Support Files/Pods-Egocenter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		EABD8BBC8F0EE052C6161DBA /* Headers */ = {
+		88FCD1E7CDD76B350CD3EA27 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B706BC3CCB8F9F7709C5B8B5 /* THContactPickerView.h in Headers */,
-				96A1DDCBCBD41942D24FCD0B /* THContactTextField.h in Headers */,
-				C63409C9E3A2034D3D4B518A /* THContactView.h in Headers */,
-				7319BDB72AECD4E3C2DBFB5E /* THContactViewStyle.h in Headers */,
+				D03060933C71A784D060B602 /* THContactPickerView.h in Headers */,
+				7319B30F7DFA19ADB5C91873 /* THContactTextField.h in Headers */,
+				B3E701FC8CB7296784887B78 /* THContactView.h in Headers */,
+				EA23CE51C88518AD7A226E4B /* THContactViewStyle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A832057C476F862238047B87 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8936ACEE87B0207DADEE28 /* SCLAlertView.h in Headers */,
+				D4B29AA870D6A827F0A7E05F /* SCLAlertViewResponder.h in Headers */,
+				0CE113FE699ACB906255F5DA /* SCLAlertViewStyleKit.h in Headers */,
+				DBE7D7840A59B1C90C1A220D /* SCLButton.h in Headers */,
+				278C2D2A6BDF272E67166F57 /* SCLMacros.h in Headers */,
+				A3DD1583CF5C16CD43643954 /* UIImage+ImageEffects.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3255DF846E898894839B92DA /* Pods-Egocenter-THContactPicker */ = {
+		294A605C1108CFACECE960E7 /* Pods-Egocenter-SCLAlertView-Objective-C */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 542F97B97D46B8502FE6DCCB /* Build configuration list for PBXNativeTarget "Pods-Egocenter-THContactPicker" */;
+			buildConfigurationList = BE4FD641C92FDB316024B22A /* Build configuration list for PBXNativeTarget "Pods-Egocenter-SCLAlertView-Objective-C" */;
 			buildPhases = (
-				D5AE130CB99179E947E5FF22 /* Sources */,
-				833E2A85B35125CBD331592C /* Frameworks */,
-				EABD8BBC8F0EE052C6161DBA /* Headers */,
+				31232C679B011A31C01F46CF /* Sources */,
+				5EAE1F7DB02464F9B12FF384 /* Frameworks */,
+				A832057C476F862238047B87 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Egocenter-SCLAlertView-Objective-C";
+			productName = "Pods-Egocenter-SCLAlertView-Objective-C";
+			productReference = 08AB2BDB1FEBF270B1770E01 /* libPods-Egocenter-SCLAlertView-Objective-C.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		30B8FAF9249F691DA3A49EE5 /* Pods-Egocenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E91DE6C5EA2935648E95A5B /* Build configuration list for PBXNativeTarget "Pods-Egocenter" */;
+			buildPhases = (
+				A06F76CBE0CB390D50BB922F /* Sources */,
+				6FB3B91706C28A0EA109C37F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A776544D52E16F02D29F575 /* PBXTargetDependency */,
+				8A8F9E595BB449306FA2A2BD /* PBXTargetDependency */,
+			);
+			name = "Pods-Egocenter";
+			productName = "Pods-Egocenter";
+			productReference = 78EFE51D389D61E60B6137A9 /* libPods-Egocenter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9E8FB94B27636D7E15BE04A3 /* Pods-Egocenter-THContactPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97E83A5801E0CCBE4F118DD3 /* Build configuration list for PBXNativeTarget "Pods-Egocenter-THContactPicker" */;
+			buildPhases = (
+				2D75ACA8DAF3C49DEF985918 /* Sources */,
+				55EF2CCDEF16FF50073BFC32 /* Frameworks */,
+				88FCD1E7CDD76B350CD3EA27 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -207,88 +332,107 @@
 			);
 			name = "Pods-Egocenter-THContactPicker";
 			productName = "Pods-Egocenter-THContactPicker";
-			productReference = 5D7DC3AE9FA602F56E79C040 /* libPods-Egocenter-THContactPicker.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F0871B891CA3DD516E529179 /* Pods-Egocenter */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6E2358B18E414ADEF6F51C30 /* Build configuration list for PBXNativeTarget "Pods-Egocenter" */;
-			buildPhases = (
-				AD04839A3EFCC99E6FD4E4AA /* Sources */,
-				A0698BC1D4BB53907CA347F8 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F57E83248E9769F069C70F3E /* PBXTargetDependency */,
-			);
-			name = "Pods-Egocenter";
-			productName = "Pods-Egocenter";
-			productReference = 3D5ADA1A2DCD82422270732B /* libPods-Egocenter.a */;
+			productReference = 7A968B54599928E62E5A4567 /* libPods-Egocenter-THContactPicker.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E1BB05907E924B6924373FD3 /* Project object */ = {
+		4F73AA02C2E7159CE13CB48A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 293DFB4CC7BFA4CCE34047D6 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = A00D42E35D13A353A02DB03C /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 15DC7E675868A59C1052F765;
-			productRefGroup = 8E5976260C6FDF2A824DC657 /* Products */;
+			mainGroup = BF5AA5352A8867B530D87AFF;
+			productRefGroup = 882AB23ED267849A74DDAACD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F0871B891CA3DD516E529179 /* Pods-Egocenter */,
-				3255DF846E898894839B92DA /* Pods-Egocenter-THContactPicker */,
+				30B8FAF9249F691DA3A49EE5 /* Pods-Egocenter */,
+				294A605C1108CFACECE960E7 /* Pods-Egocenter-SCLAlertView-Objective-C */,
+				9E8FB94B27636D7E15BE04A3 /* Pods-Egocenter-THContactPicker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AD04839A3EFCC99E6FD4E4AA /* Sources */ = {
+		2D75ACA8DAF3C49DEF985918 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D26A76FB76D7E2EB6A13BAE /* Pods-Egocenter-dummy.m in Sources */,
+				C0B95B99C16E73952B5768BE /* Pods-Egocenter-THContactPicker-dummy.m in Sources */,
+				FC39121772E21F397A4373C1 /* THContactPickerView.m in Sources */,
+				1F796DDAEFD33FB567868153 /* THContactTextField.m in Sources */,
+				153B29B8F12692EF7A3E9D8B /* THContactView.m in Sources */,
+				15F8E570D137AD84BBEB44F8 /* THContactViewStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5AE130CB99179E947E5FF22 /* Sources */ = {
+		31232C679B011A31C01F46CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BAF4DB82C58FA07EB60455 /* Pods-Egocenter-THContactPicker-dummy.m in Sources */,
-				209F55EF2AED504E9C431C90 /* THContactPickerView.m in Sources */,
-				661188D2B8B44BD80ADABBC4 /* THContactTextField.m in Sources */,
-				9241235FBA71B12F020BA8F5 /* THContactView.m in Sources */,
-				E9533027700348532A9F11BC /* THContactViewStyle.m in Sources */,
+				E189EB2FB0F6AB25D9CCD28D /* Pods-Egocenter-SCLAlertView-Objective-C-dummy.m in Sources */,
+				9011155E21F43A904B830746 /* SCLAlertView.m in Sources */,
+				C498A5BB4DA20FCD3D321E6D /* SCLAlertViewResponder.m in Sources */,
+				22FA2D17F41233E6985345C1 /* SCLAlertViewStyleKit.m in Sources */,
+				B96D01A6E4C7C5FC76307EC0 /* SCLButton.m in Sources */,
+				99B5D6A11EE97102CD9FDE00 /* UIImage+ImageEffects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A06F76CBE0CB390D50BB922F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFED5C3AD3D937D3C5123199 /* Pods-Egocenter-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F57E83248E9769F069C70F3E /* PBXTargetDependency */ = {
+		4A776544D52E16F02D29F575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Egocenter-SCLAlertView-Objective-C";
+			target = 294A605C1108CFACECE960E7 /* Pods-Egocenter-SCLAlertView-Objective-C */;
+			targetProxy = 00CE37B9699B1FCFDD17A75D /* PBXContainerItemProxy */;
+		};
+		8A8F9E595BB449306FA2A2BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Egocenter-THContactPicker";
-			target = 3255DF846E898894839B92DA /* Pods-Egocenter-THContactPicker */;
-			targetProxy = C5E55B788F9A53A23B638813 /* PBXContainerItemProxy */;
+			target = 9E8FB94B27636D7E15BE04A3 /* Pods-Egocenter-THContactPicker */;
+			targetProxy = 795DE0E2E7A2D0707B1C439F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0CE570E4C174E62FFE716E0E /* Release */ = {
+		13FB2DD98F3BE4678C2570CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8236C0D45F0DB61BF18E6AE9 /* Pods-Egocenter.release.xcconfig */;
+			baseConfigurationReference = 04363C0CF1FE6F829ED27574 /* Pods-Egocenter-THContactPicker-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-THContactPicker/Pods-Egocenter-THContactPicker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		53B50613B68981D29247DD99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628C6B2C11FE825D02940474 /* Pods-Egocenter.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -302,23 +446,7 @@
 			};
 			name = Release;
 		};
-		14AD964F62C29CBA753BFEC8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72CFD394B64A2185038C906C /* Pods-Egocenter-THContactPicker-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-THContactPicker/Pods-Egocenter-THContactPicker-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		63BFCAEF93D65F5FA2BABF63 /* Debug */ = {
+		7051034374D7248C05918361 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -357,7 +485,71 @@
 			};
 			name = Debug;
 		};
-		ABE313A9230E2808233B30AF /* Release */ = {
+		813596EB8C843FDF5C7C1E78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 919237476F120F40A2107A83 /* Pods-Egocenter-SCLAlertView-Objective-C-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-SCLAlertView-Objective-C/Pods-Egocenter-SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9602782E3B35F36532E73AC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 919237476F120F40A2107A83 /* Pods-Egocenter-SCLAlertView-Objective-C-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-SCLAlertView-Objective-C/Pods-Egocenter-SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		96A6D52E5E6CEA5C0CA74804 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04363C0CF1FE6F829ED27574 /* Pods-Egocenter-THContactPicker-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-THContactPicker/Pods-Egocenter-THContactPicker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9C598B93C3AC8CAE3A28D452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D78DD03DEFE6C978869AA07 /* Pods-Egocenter.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F143DD71D535E612E3FBD4F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -391,69 +583,46 @@
 			};
 			name = Release;
 		};
-		B809FCD18AB83112E76F28F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86E46C2B63DD3E0EA98267E0 /* Pods-Egocenter.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F4DD83F62F503C4FB0FB2EA5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72CFD394B64A2185038C906C /* Pods-Egocenter-THContactPicker-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Egocenter-THContactPicker/Pods-Egocenter-THContactPicker-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		293DFB4CC7BFA4CCE34047D6 /* Build configuration list for PBXProject "Pods" */ = {
+		7E91DE6C5EA2935648E95A5B /* Build configuration list for PBXNativeTarget "Pods-Egocenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63BFCAEF93D65F5FA2BABF63 /* Debug */,
-				ABE313A9230E2808233B30AF /* Release */,
+				9C598B93C3AC8CAE3A28D452 /* Debug */,
+				53B50613B68981D29247DD99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		542F97B97D46B8502FE6DCCB /* Build configuration list for PBXNativeTarget "Pods-Egocenter-THContactPicker" */ = {
+		97E83A5801E0CCBE4F118DD3 /* Build configuration list for PBXNativeTarget "Pods-Egocenter-THContactPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14AD964F62C29CBA753BFEC8 /* Debug */,
-				F4DD83F62F503C4FB0FB2EA5 /* Release */,
+				96A6D52E5E6CEA5C0CA74804 /* Debug */,
+				13FB2DD98F3BE4678C2570CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6E2358B18E414ADEF6F51C30 /* Build configuration list for PBXNativeTarget "Pods-Egocenter" */ = {
+		A00D42E35D13A353A02DB03C /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B809FCD18AB83112E76F28F5 /* Debug */,
-				0CE570E4C174E62FFE716E0E /* Release */,
+				7051034374D7248C05918361 /* Debug */,
+				F143DD71D535E612E3FBD4F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE4FD641C92FDB316024B22A /* Build configuration list for PBXNativeTarget "Pods-Egocenter-SCLAlertView-Objective-C" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9602782E3B35F36532E73AC9 /* Debug */,
+				813596EB8C843FDF5C7C1E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E1BB05907E924B6924373FD3 /* Project object */;
+	rootObject = 4F73AA02C2E7159CE13CB48A /* Project object */;
 }

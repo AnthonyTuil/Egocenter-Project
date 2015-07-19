@@ -174,7 +174,7 @@
     
     for (int i =0; i< [arrayViews count]; i++) {
         RelationView *test = [arrayViews objectAtIndex:i];
-        NSLog(@"index : %i // arrayview : %i count : %i",index,test.relation_id,[arrayViews count]);
+        NSLog(@"index : %i // arrayview : %i count : %lu",index,test.relation_id,(unsigned long)[arrayViews count]);
         if (test.relation_id == index) {
             [test removeFromSuperview];
             [arrayViews removeObjectAtIndex:i];
@@ -230,10 +230,21 @@ int indexMoving;
     if (distance < 30) {
        // check if the relation is close enought
         
+       
+        
         RelationView *viewToMove = [arrayViews objectAtIndex:indexToMove];
         viewToMove.center = touchLocation;
         isLinking = NO;
         hasStarted = YES;
+        
+        id master = self.splitViewController.viewControllers[0];
+        if ([master isKindOfClass:[UINavigationController class]]) {
+            master = [((UINavigationController*)master).viewControllers firstObject];
+        }
+        if ([master isKindOfClass:[MasterTableViewController class]]) {
+            
+            [master selectRelationAtIndex:viewToMove.relation_id];
+        }
         
             }
     }

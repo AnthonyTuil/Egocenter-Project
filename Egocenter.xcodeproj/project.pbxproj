@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		332197FC801057F09E0243F2 /* libPods-Egocenter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B65E744C6C2E72D67B5BC837 /* libPods-Egocenter.a */; };
+		33271D731B4FE62D00FBB8DD /* Logo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33271D721B4FE62D00FBB8DD /* Logo.xcassets */; };
 		332AF9B01B3C524100601371 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 332AF9AF1B3C524100601371 /* Group.m */; };
 		336815D21B34633B002B882D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */; };
 		337CC76A1B46B99800F287C5 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 337CC7691B46B99800F287C5 /* Link.m */; };
 		337CC7751B46EBED00F287C5 /* Doctor_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7711B46EBED00F287C5 /* Doctor_button_pressed.png */; };
-		337CC7761B46EBED00F287C5 /* Doctor_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7721B46EBED00F287C5 /* Doctor_button.png */; };
-		337CC7771B46EBED00F287C5 /* Patient_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7731B46EBED00F287C5 /* Patient_button_pressed.png */; };
-		337CC7781B46EBED00F287C5 /* Patient_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7741B46EBED00F287C5 /* Patient_button.png */; };
-		337CC77D1B46F0E100F287C5 /* Create_account_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7791B46F0E100F287C5 /* Create_account_button_pressed.png */; };
-		337CC77E1B46F0E100F287C5 /* Create_account_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77A1B46F0E100F287C5 /* Create_account_button.png */; };
-		337CC77F1B46F0E100F287C5 /* Login_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77B1B46F0E100F287C5 /* Login_button_pressed.png */; };
-		337CC7801B46F0E100F287C5 /* Login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77C1B46F0E100F287C5 /* Login_button.png */; };
+		337CC7751B46EBED00F287C5 /* Doctor_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7711B46EBED00F287C5 /* Doctor_button_pressed@2x.png */; };
+		337CC7761B46EBED00F287C5 /* Doctor_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7721B46EBED00F287C5 /* Doctor_button@2x.png */; };
+		337CC7771B46EBED00F287C5 /* Patient_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7731B46EBED00F287C5 /* Patient_button_pressed@2x.png */; };
+		337CC7781B46EBED00F287C5 /* Patient_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7741B46EBED00F287C5 /* Patient_button@2x.png */; };
+		337CC77D1B46F0E100F287C5 /* Create_account_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7791B46F0E100F287C5 /* Create_account_button_pressed@2x.png */; };
+		337CC77E1B46F0E100F287C5 /* Create_account_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77A1B46F0E100F287C5 /* Create_account_button@2x.png */; };
+		337CC77F1B46F0E100F287C5 /* Login_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77B1B46F0E100F287C5 /* Login_button_pressed@2x.png */; };
+		337CC7801B46F0E100F287C5 /* Login_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC77C1B46F0E100F287C5 /* Login_button@2x.png */; };
 		3386487C1B419C2000036772 /* DialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3386487B1B419C2000036772 /* DialViewController.m */; };
 		3386487F1B419C2B00036772 /* QuadranViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3386487E1B419C2B00036772 /* QuadranViewController.m */; };
 		338648821B41B7A600036772 /* SendSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338648811B41B7A600036772 /* SendSurveyViewController.m */; };
@@ -78,19 +80,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33271D721B4FE62D00FBB8DD /* Logo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logo.xcassets; sourceTree = "<group>"; };
 		332AF9AE1B3C524100601371 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		332AF9AF1B3C524100601371 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		337CC7681B46B99800F287C5 /* Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
 		337CC7691B46B99800F287C5 /* Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Link.m; sourceTree = "<group>"; };
-		337CC76B1B46EABE00F287C5 /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
-		337CC7711B46EBED00F287C5 /* Doctor_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Doctor_button_pressed.png; path = Design/Doctor_button_pressed.png; sourceTree = "<group>"; };
-		337CC7721B46EBED00F287C5 /* Doctor_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Doctor_button.png; path = Design/Doctor_button.png; sourceTree = "<group>"; };
-		337CC7731B46EBED00F287C5 /* Patient_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Patient_button_pressed.png; path = Design/Patient_button_pressed.png; sourceTree = "<group>"; };
-		337CC7741B46EBED00F287C5 /* Patient_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Patient_button.png; path = Design/Patient_button.png; sourceTree = "<group>"; };
-		337CC7791B46F0E100F287C5 /* Create_account_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Create_account_button_pressed.png; path = Design/Create_account_button_pressed.png; sourceTree = "<group>"; };
-		337CC77A1B46F0E100F287C5 /* Create_account_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Create_account_button.png; path = Design/Create_account_button.png; sourceTree = "<group>"; };
-		337CC77B1B46F0E100F287C5 /* Login_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login_button_pressed.png; path = Design/Login_button_pressed.png; sourceTree = "<group>"; };
-		337CC77C1B46F0E100F287C5 /* Login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login_button.png; path = Design/Login_button.png; sourceTree = "<group>"; };
+		337CC7711B46EBED00F287C5 /* Doctor_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Doctor_button_pressed@2x.png"; path = "Design/Doctor_button_pressed@2x.png"; sourceTree = "<group>"; };
+		337CC7721B46EBED00F287C5 /* Doctor_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Doctor_button@2x.png"; path = "Design/Doctor_button@2x.png"; sourceTree = "<group>"; };
+		337CC7731B46EBED00F287C5 /* Patient_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Patient_button_pressed@2x.png"; path = "Design/Patient_button_pressed@2x.png"; sourceTree = "<group>"; };
+		337CC7741B46EBED00F287C5 /* Patient_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Patient_button@2x.png"; path = "Design/Patient_button@2x.png"; sourceTree = "<group>"; };
+		337CC7791B46F0E100F287C5 /* Create_account_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Create_account_button_pressed@2x.png"; path = "Design/Create_account_button_pressed@2x.png"; sourceTree = "<group>"; };
+		337CC77A1B46F0E100F287C5 /* Create_account_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Create_account_button@2x.png"; path = "Design/Create_account_button@2x.png"; sourceTree = "<group>"; };
+		337CC77B1B46F0E100F287C5 /* Login_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Login_button_pressed@2x.png"; path = "Design/Login_button_pressed@2x.png"; sourceTree = "<group>"; };
+		337CC77C1B46F0E100F287C5 /* Login_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Login_button@2x.png"; path = "Design/Login_button@2x.png"; sourceTree = "<group>"; };
 		3386487A1B419C2000036772 /* DialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialViewController.h; sourceTree = "<group>"; };
 		3386487B1B419C2000036772 /* DialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialViewController.m; sourceTree = "<group>"; };
 		3386487D1B419C2B00036772 /* QuadranViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadranViewController.h; sourceTree = "<group>"; };
@@ -212,15 +214,14 @@
 		337CC76C1B46EAC200F287C5 /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				337CC76B1B46EABE00F287C5 /* GothamBold.ttf */,
-				337CC7711B46EBED00F287C5 /* Doctor_button_pressed.png */,
-				337CC7721B46EBED00F287C5 /* Doctor_button.png */,
-				337CC7731B46EBED00F287C5 /* Patient_button_pressed.png */,
-				337CC7791B46F0E100F287C5 /* Create_account_button_pressed.png */,
-				337CC77A1B46F0E100F287C5 /* Create_account_button.png */,
-				337CC77B1B46F0E100F287C5 /* Login_button_pressed.png */,
-				337CC77C1B46F0E100F287C5 /* Login_button.png */,
-				337CC7741B46EBED00F287C5 /* Patient_button.png */,
+				337CC7711B46EBED00F287C5 /* Doctor_button_pressed@2x.png */,
+				337CC7721B46EBED00F287C5 /* Doctor_button@2x.png */,
+				337CC7731B46EBED00F287C5 /* Patient_button_pressed@2x.png */,
+				337CC7791B46F0E100F287C5 /* Create_account_button_pressed@2x.png */,
+				337CC77A1B46F0E100F287C5 /* Create_account_button@2x.png */,
+				337CC77B1B46F0E100F287C5 /* Login_button_pressed@2x.png */,
+				337CC77C1B46F0E100F287C5 /* Login_button@2x.png */,
+				337CC7741B46EBED00F287C5 /* Patient_button@2x.png */,
 			);
 			name = Design;
 			sourceTree = "<group>";
@@ -351,6 +352,7 @@
 		92DCEA9A1B1F56A100760B35 = {
 			isa = PBXGroup;
 			children = (
+				33271D721B4FE62D00FBB8DD /* Logo.xcassets */,
 				92DCEAA51B1F56A100760B35 /* Egocenter */,
 				92DCEAC21B1F56A200760B35 /* EgocenterTests */,
 				92AECB421B2B1827001B990E /* Frameworks */,
@@ -508,18 +510,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				337CC7771B46EBED00F287C5 /* Patient_button_pressed.png in Resources */,
-				337CC7761B46EBED00F287C5 /* Doctor_button.png in Resources */,
-				337CC77F1B46F0E100F287C5 /* Login_button_pressed.png in Resources */,
-				337CC7801B46F0E100F287C5 /* Login_button.png in Resources */,
-				337CC77D1B46F0E100F287C5 /* Create_account_button_pressed.png in Resources */,
+				337CC7771B46EBED00F287C5 /* Patient_button_pressed@2x.png in Resources */,
+				337CC7761B46EBED00F287C5 /* Doctor_button@2x.png in Resources */,
+				337CC77F1B46F0E100F287C5 /* Login_button_pressed@2x.png in Resources */,
+				337CC7801B46F0E100F287C5 /* Login_button@2x.png in Resources */,
+				337CC77D1B46F0E100F287C5 /* Create_account_button_pressed@2x.png in Resources */,
 				92DCEAB51B1F56A100760B35 /* Main.storyboard in Resources */,
+				33271D731B4FE62D00FBB8DD /* Logo.xcassets in Resources */,
 				92DCEABA1B1F56A100760B35 /* LaunchScreen.xib in Resources */,
 				92DCEAB71B1F56A100760B35 /* Images.xcassets in Resources */,
-				337CC7781B46EBED00F287C5 /* Patient_button.png in Resources */,
-				337CC7751B46EBED00F287C5 /* Doctor_button_pressed.png in Resources */,
+				337CC7781B46EBED00F287C5 /* Patient_button@2x.png in Resources */,
+				337CC7751B46EBED00F287C5 /* Doctor_button_pressed@2x.png in Resources */,
 				339219AD1B3EE712008B4E3C /* egocenter.sql in Resources */,
-				337CC77E1B46F0E100F287C5 /* Create_account_button.png in Resources */,
+				337CC77E1B46F0E100F287C5 /* Create_account_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +737,7 @@
 			baseConfigurationReference = 59B036411FDA8E8DD6AFBC40 /* Pods-Egocenter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Egocenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -746,6 +750,7 @@
 			baseConfigurationReference = 951AC89ECE69C8450DC2F31C /* Pods-Egocenter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Egocenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

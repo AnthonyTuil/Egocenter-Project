@@ -3,6 +3,7 @@ platform :ios, '7.0'
 
 target 'Egocenter' do
 pod 'THContactPicker', '~> 1.1.1'
+pod 'SCLAlertView-Objective-C', '~> 0.7'
 end
 
 target 'EgocenterTests' do

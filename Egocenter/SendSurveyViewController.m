@@ -17,6 +17,7 @@
 @implementation SendSurveyViewController
 @synthesize contactPickerView = _contactPickerView;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -30,13 +31,29 @@
     
     self.privateSelectedContacts = [[NSMutableArray alloc] init];
     
-    self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(10, 60, 500, 50)];
-    [self.contactPickerView setPlaceholderLabelText:@"Enter the patients email here"];
+    self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, 3)];
+    self.contactPickerView.autoresizingMask = UIViewAutoresizingNone;
     self.contactPickerView.delegate = self;
+    self.contactPickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleWidth;
+    [self.contactPickerView setPlaceholderLabelText:@"Who would you like to send the survey?"];
     [self.contactPickerView setPromptLabelText:@"To:"];
-    
     [self.view addSubview:self.contactPickerView];
     
+    CALayer *layer = [self.contactPickerView layer];
+    [layer setShadowColor:[[UIColor colorWithRed:225.0/255.0 green:226.0/255.0 blue:228.0/255.0 alpha:1] CGColor]];
+    [layer setShadowOffset:CGSizeMake(0, 2)];
+    [layer setShadowOpacity:1];
+    [layer setShadowRadius:1.0f];
+    
+    UITextView *tokenLabel = [[UITextView alloc] initWithFrame:CGRectMake(100, 150, 200, 50)];
+    tokenLabel.textAlignment = NSTextAlignmentCenter;
+    tokenLabel.font = [UIFont boldSystemFontOfSize:25];
+    tokenLabel.textColor = [UIColor colorWithRed:125.0/255.0 green:147.0/255.0 blue:171.0/255.0 alpha:1.0];
+    tokenLabel.center = CGPointMake(self.navigationController.view.frame.size.width/2, self.view.frame.size.height*0.5);
+    tokenLabel.text = [NSString stringWithFormat:@"%i",self.recordIDToEdit];
+    tokenLabel.editable = NO;
+    
+    [self.view addSubview:tokenLabel];
     [self.view addSubview:sendToPatient];
     
     
@@ -68,6 +85,10 @@
 
 -(void)sendMailsToServor{
     NSError* error = nil;
+    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.backgroundType = Blur;
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[self indexKeyedDictionaryFromArray:self.privateSelectedContacts] options:NSJSONWritingPrettyPrinted error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",jsonString);
@@ -81,6 +102,9 @@
     [managerToken POST:@"http://egocenter.telecom-paristech.fr/egocenter/v1/add_patients" parameters:parameters success:^(AFHTTPRequestOperation *operationToken, id responseToken) {
         
         NSLog(@"%@",responseToken);
+        
+        [alert showSuccess:self title:@"Emails saved" subTitle:@"Emails have been saved, you can notice users." closeButtonTitle:@"Done" duration:0.0f];
+        
         if([MFMailComposeViewController canSendMail]) {
             MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
             mailCont.mailComposeDelegate = self;
@@ -93,8 +117,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-        NSLog(@"Failure : %@",errorToken);
-        // requete non envoyé
+        [alert showWarning:self title:@"Connection issue" subTitle:@"Couldn't reach servor. Please try again." closeButtonTitle:@"Done" duration:0.0f];
     }];
     
 
@@ -126,11 +149,19 @@
 }
 
 - (BOOL)contactPickerTextFieldShouldReturn:(UITextField *)textField {
-    if (textField.text.length > 0){
+    if (textField.text.length > 0 && [self isValidEmail:textField.text]){
         
         NSString *contact = [[NSString alloc] initWithString:textField.text];
         [self.privateSelectedContacts addObject:contact];
         [self.contactPickerView addContact:contact withName:textField.text];
+    }
+    else{
+        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+        alert.shouldDismissOnTapOutside = YES;
+        alert.backgroundType = Blur;
+        
+        [alert showWarning:self title:@"Invalid mail" subTitle:@"The mail is invalid. Please enter mail again." closeButtonTitle:@"Done" duration:0.0f];
+
     }
     return YES;
 }
@@ -145,8 +176,12 @@
 
 
 -(void)addToDB{
+#warning remettre ca
     
-    /*
+    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.backgroundType = Blur;
+    
     AFHTTPRequestOperationManager *managerToken = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"email": [[NSUserDefaults standardUserDefaults] objectForKey:@"mail_doctor"],
                                  @"token": [NSString stringWithFormat:@"%i",self.recordIDToEdit],
@@ -164,25 +199,22 @@
         
         // get reponse serveur
         if (![[responseToken objectForKey:@"error"] boolValue]) {
-            NSLog(@"well saved in DB");
-            // pas d'erreur
+           [alert showSuccess:self title:@"Survey saved" subTitle:@"Survey have been saved, you can add users." closeButtonTitle:@"Done" duration:0.0f];
             sendToPatient.enabled = YES;
             
         }else{
             // erreur
-            NSLog(@"%@",[responseToken objectForKey:@"message"]);
+            //[alert showWarning:self title:@"Oops" subTitle:[NSString stringWithFormat:@"%@",[responseToken objectForKey:@"message"]] closeButtonTitle:@"Done" duration:0.0f];
             sendToPatient.enabled = YES;
         }
         
         
     } failure:^(AFHTTPRequestOperation *operationToken, NSError *errorToken) {
-        NSLog(@"Failure : %@",errorToken);
-        // requete non envoyé
+      [alert showWarning:self title:@"Connection issue" subTitle:@"Couldn't reach servor. Please try again." closeButtonTitle:@"Done" duration:0.0f];
     }];
      
-     */
+     
     
-  sendToPatient.enabled = YES;
     
 
 }

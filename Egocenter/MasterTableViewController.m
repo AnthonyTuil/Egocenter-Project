@@ -194,6 +194,15 @@
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
+-(void)selectRelationAtIndex:(int)index{
+    if ([self.navigationController.viewControllers count] < 2) {
+        RelationViewController *relationVC = [[RelationViewController alloc] init];
+        relationVC.recordIDToEdit  = index;
+        [self.navigationController pushViewController:relationVC animated:YES];
+
+    }
+}
+
 
 
 

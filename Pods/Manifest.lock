@@ -1,10 +1,13 @@
 PODS:
+  - SCLAlertView-Objective-C (0.7.3)
   - THContactPicker (1.1.1)
 
 DEPENDENCIES:
+  - SCLAlertView-Objective-C (~> 0.7)
   - THContactPicker (~> 1.1.1)
 
 SPEC CHECKSUMS:
+  SCLAlertView-Objective-C: 4bf9a07c8a8d1840e5174e643e16bc032239914d
   THContactPicker: 69a146b4ab9ef39cd2520977acb344fe27a59f81
 
 COCOAPODS: 0.37.2
