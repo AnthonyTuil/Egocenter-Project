@@ -12,7 +12,6 @@
 		332AF9B01B3C524100601371 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 332AF9AF1B3C524100601371 /* Group.m */; };
 		336815D21B34633B002B882D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AECB3A1B2B17F7001B990E /* libsqlite3.dylib */; };
 		337CC76A1B46B99800F287C5 /* Link.m in Sources */ = {isa = PBXBuildFile; fileRef = 337CC7691B46B99800F287C5 /* Link.m */; };
-		337CC7751B46EBED00F287C5 /* Doctor_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7711B46EBED00F287C5 /* Doctor_button_pressed.png */; };
 		337CC7751B46EBED00F287C5 /* Doctor_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7711B46EBED00F287C5 /* Doctor_button_pressed@2x.png */; };
 		337CC7761B46EBED00F287C5 /* Doctor_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7721B46EBED00F287C5 /* Doctor_button@2x.png */; };
 		337CC7771B46EBED00F287C5 /* Patient_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337CC7731B46EBED00F287C5 /* Patient_button_pressed@2x.png */; };

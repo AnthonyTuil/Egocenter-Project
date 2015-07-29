@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F9329A80941C047817AB2DF568101030268371FC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F9329A80941C047817AB2DF568101030268371FC" : 0,
+    "A648D2ECF4491A5F0CE013DAC2C26726373203F1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "71E10003-907E-4C4B-8A8E-277103A010D2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F9329A80941C047817AB2DF568101030268371FC" : "Egocenter",
+    "A648D2ECF4491A5F0CE013DAC2C26726373203F1" : "EgocenterEgocenter"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Egocenter",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Egocenter.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AnthonyTuil\/Egocenter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A648D2ECF4491A5F0CE013DAC2C26726373203F1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AnthonyTuil\/Egocenter-Project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F9329A80941C047817AB2DF568101030268371FC"
+    }
+  ]
+}

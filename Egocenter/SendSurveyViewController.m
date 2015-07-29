@@ -45,6 +45,13 @@
     [layer setShadowOpacity:1];
     [layer setShadowRadius:1.0f];
     
+    UILabel *addPatient = [[UILabel alloc] init];
+    addPatient.text = @"Click on the bar below to add patients. Tap enter after each mail to validate.";
+    addPatient.textAlignment = NSTextAlignmentCenter;
+    addPatient.font = [UIFont boldSystemFontOfSize:15];
+    addPatient.frame = CGRectMake(0, 100, self.navigationController.view.frame.size.width, 50);
+    
+    
     UITextView *tokenLabel = [[UITextView alloc] initWithFrame:CGRectMake(100, 150, 200, 50)];
     tokenLabel.textAlignment = NSTextAlignmentCenter;
     tokenLabel.font = [UIFont boldSystemFontOfSize:25];
@@ -53,6 +60,7 @@
     tokenLabel.text = [NSString stringWithFormat:@"%i",self.recordIDToEdit];
     tokenLabel.editable = NO;
     
+    [self.view addSubview:addPatient];
     [self.view addSubview:tokenLabel];
     [self.view addSubview:sendToPatient];
     
@@ -109,9 +117,9 @@
             MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
             mailCont.mailComposeDelegate = self;
             
-            [mailCont setSubject:@"TITLE_TEXT"];
+            [mailCont setSubject:@"Egocenter token"];
             [mailCont setToRecipients:self.privateSelectedContacts];
-            [mailCont setMessageBody:@"BODY_TEXT " isHTML:NO];
+            [mailCont setMessageBody:[NSString stringWithFormat:@"Hi, you are invited to answer an egocenter test. Please download the app and connect with your email and the token : %i",self.recordIDToEdit] isHTML:NO];
             
             [self.navigationController presentViewController:mailCont animated:YES completion:nil];
         }
